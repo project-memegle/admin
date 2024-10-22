@@ -3,7 +3,7 @@ import ChatItem from './ChatItem';
 
 export default function ChatDetails() {
     return (
-        <div className="home__main">
+        <div className="chat__detail-main">
             <form action="" className="c-chat__detail">
                 <div className="c-chat-title__detail">
                     <section>

@@ -37,10 +37,10 @@ export default function ImageDetails() {
                 </button>
                 <h2>이미지 상세보기</h2>
             </div>
-            <div>
-                <img src={imageUrl} alt={imageCategory} />
-            </div>
             <form className="c-image__detail-section">
+                <div>
+                    <img src={imageUrl} alt={imageCategory} />
+                </div>
                 <div className="c-image__detail-section-item">
                     <label htmlFor="">밈 아이디</label>
                     <input

@@ -1,15 +1,36 @@
+@mixin padding-style {
+  margin-left: var(--navBar__width);
+}
+@mixin main-style {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: scroll;
+  background-color: var(--primary__background-color);
+  clear: both;
+}
+
 @mixin styles() {
   .home__main {
+    padding: calc(var(--primary__font-size) * 3);
+    @include padding-style;
+    @include main-style;
+  }
+
+  .chat__detail-main {
+    padding: calc(var(--primary__font-size) * 3) calc(var(--primary__font-size) * 3) 0
+      calc(var(--primary__font-size) * 3);
+
+    @include padding-style;
+    @include main-style;
+  }
+
+  .error__main {
+    @include padding-style;
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-left: var(--navBar__width);
-    overflow-y: scroll;
-    background-color: var(--primary__background-color);
-
-    clear: both;
-
-    padding: calc(var(--primary__font-size) * 3) calc(var(--primary__font-size) * 3) 0 calc(var(--primary__font-size) * 3);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
   .home__text {

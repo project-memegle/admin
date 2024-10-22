@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-
+import NavBar from '../components/UI/NavBar/NavBar';
+import icon from '@memegle/assets/images/ic_404.png';
 export default function NotFoundPage() {
     const navigate = useNavigate();
 
@@ -7,9 +8,11 @@ export default function NotFoundPage() {
         navigate('/');
     }
     return (
-        <main>
-            <h1>Oops! Not found</h1>
-            <button onClick={naviteToHome}>홈으로 돌아가기</button>
-        </main>
+        <>
+            <NavBar />
+            <main className='error__main'>
+                <img src={icon} alt="icon" />
+            </main>
+        </>
     );
 }
