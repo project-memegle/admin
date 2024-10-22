@@ -11,6 +11,8 @@
 @use "login.scss";
 @use "notification.scss";
 @use "navBar.scss";
+@use "image.scss";
+@use "dropdown.scss";
 
 @mixin styles() {
   @include button.styles;
@@ -26,4 +28,6 @@
   @include login.styles;
   @include notification.styles;
   @include navBar.styles;
+  @include image.styles;
+  @include dropdown.styles;
 }

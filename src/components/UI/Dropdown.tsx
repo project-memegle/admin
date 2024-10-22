@@ -19,32 +19,24 @@ export default function Dropdown({
 
     const handleCategoryClick = (category: string) => {
         onCategoryChange(category);
+        onCategoryChange(category);
         setIsOpen(false);
     };
 
     return (
-        <div className="dropdown">
-            <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                onClick={toggleDropdown}
-                aria-expanded={isOpen}
-            >
-                {currentCategory}
-            </button>
-            <ul className={`dropdown-menu ${isOpen ? 'show' : ''}`}>
+        <form className="dropdown">
+            <label htmlFor="category">dropdown</label>
+            <select name="category" id="category">
                 {categories.map((item, index) => (
-                    <li key={index}>
-                        <button
-                            className="dropdown-item"
-                            type="button"
-                            onClick={() => handleCategoryClick(item)}
-                        >
-                            {item}
-                        </button>
-                    </li>
+                    <option
+                        key={index}
+                        value={item}
+                        onClick={() => handleCategoryClick(item)}
+                    >
+                        {item}
+                    </option>
                 ))}
-            </ul>
-        </div>
+            </select>
+        </form>
     );
 }

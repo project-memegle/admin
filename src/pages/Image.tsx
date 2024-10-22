@@ -16,22 +16,26 @@ export default function Image() {
     function onClick(item: fakeDataItem) {
         return (e: MouseEvent<HTMLLIElement>) => {
             e.preventDefault();
-            navigate(`image/${item.id}`, { state: item });
+            navigate(`/image/${item.id}`, { state: item });
         };
     }
 
     return (
         <main className="home__main">
-            <div className='c-title'>
+            <div className="c-title">
                 <h3>이미지 관리</h3>
             </div>
-            <ul>
+            <section className="c-image__section">
                 {fakeDataArray.map((item: fakeDataItem) => (
-                    <li key={item.id} onClick={onClick(item)}>
+                    <article
+                        key={item.id}
+                        onClick={onClick(item)}
+                        className="c-image__section-item"
+                    >
                         <img src={item.imageUrl} alt="" />
-                    </li>
+                    </article>
                 ))}
-            </ul>
+            </section>
         </main>
     );
 }

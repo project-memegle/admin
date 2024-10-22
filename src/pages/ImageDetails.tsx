@@ -30,34 +30,54 @@ export default function ImageDetails() {
     }
 
     return (
-        <main className="home__main">
-            <h1>Image</h1>
+        <main className="home__main c-image__detail">
+            <div className="c-title__detail">
+                <h3>이미지 상세보기</h3>
+                <button>목록으로 돌아가기</button>
+            </div>
             <div>
                 <img src={imageUrl} alt={imageCategory} />
             </div>
-            <ul>
-                <li>
-                    <button onClick={handleImageApprove}>
-                        이미지 등록 승인
-                    </button>
-                </li>
-                <li>
-                    <button onClick={handleImageReject}>
-                        이미지 등록 반려
-                    </button>
-                </li>
-                <li>
-                    <button>이미지 삭제</button>
-                </li>
-                <li>
-                    <Dropdown
-                        currentCategory={category}
-                        categories={categories}
-                        onCategoryChange={handleCategoryChange}
+            <form className="c-title__detail-section">
+                <div className="c-title__detail-section-item">
+                    <label htmlFor="">밈 아이디</label>
+                    <input
+                        type="text"
+                        value="1
+                    "
                     />
-                    <button>카테고리 변경하기</button>
-                </li>
-            </ul>
+                </div>{' '}
+                <div className="c-title__detail-section-item">
+                    <label htmlFor="">최종 수정일</label>
+                    <input type="text" value="2023.04.10" />
+                </div>{' '}
+                <div className="c-title__detail-section-item">
+                    <label htmlFor="">게시일</label>
+                    <input type="text" value="2023.04.01" />
+                </div>{' '}
+                <div className="c-title__detail-section-item">
+                    <label htmlFor="">검증 여부</label>
+                    {/* <input type="text" value="미승인" /> */}
+                    <select name="category" id="category">
+                        <option value="미승인">미승인</option>
+                        <option value="승인">승인</option>
+                        <option value="반려">반려</option>
+                    </select>
+                </div>{' '}
+                <div className="c-title__detail-section-item">
+                    <label htmlFor="">카테고리</label>
+                    <select name="category" id="category">
+                        {categories.map((item, index) => (
+                            <option key={index} value={item}>
+                                {item}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="c-title__detail-section-button">
+                    <button>변경사항 저장</button>
+                </div>
+            </form>
         </main>
     );
 }

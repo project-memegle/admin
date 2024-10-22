@@ -1,5 +1,11 @@
 @import "../settings/colors";
 
+@mixin border-bottom-style {
+  border-bottom: 3px solid var(--navBar__primary-color);
+  margin-bottom: calc(var(--primary__padding) * 3);
+  padding-bottom: var(--primary__padding);
+}
+
 @mixin styles() {
   .main__container {
     background-color: var(--primary__background-color);
@@ -14,8 +20,13 @@
   }
 
   .c-title {
-    border-bottom: 3px solid var(--navBar__primary-color);
-    margin-bottom: calc(var(--primary__padding) * 3);
-    padding-bottom: var(--primary__padding);
+    @include border-bottom-style;
+
+    &__detail {
+      @include border-bottom-style;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
