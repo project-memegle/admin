@@ -32,14 +32,16 @@ export default function ImageDetails() {
     return (
         <main className="home__main c-image__detail">
             <div className="c-title__detail">
+                <button className="c-title__detail-button">
+                    <i className="c-icon">arrow_back_ios</i>
+                </button>
                 <h3>이미지 상세보기</h3>
-                <button>목록으로 돌아가기</button>
             </div>
             <div>
                 <img src={imageUrl} alt={imageCategory} />
             </div>
-            <form className="c-title__detail-section">
-                <div className="c-title__detail-section-item">
+            <form className="c-image__detail-section">
+                <div className="c-image__detail-section-item">
                     <label htmlFor="">밈 아이디</label>
                     <input
                         type="text"
@@ -47,15 +49,15 @@ export default function ImageDetails() {
                     "
                     />
                 </div>{' '}
-                <div className="c-title__detail-section-item">
+                <div className="c-image__detail-section-item">
                     <label htmlFor="">최종 수정일</label>
                     <input type="text" value="2023.04.10" />
                 </div>{' '}
-                <div className="c-title__detail-section-item">
+                <div className="c-image__detail-section-item">
                     <label htmlFor="">게시일</label>
                     <input type="text" value="2023.04.01" />
                 </div>{' '}
-                <div className="c-title__detail-section-item">
+                <div className="c-image__detail-section-item">
                     <label htmlFor="">검증 여부</label>
                     {/* <input type="text" value="미승인" /> */}
                     <select name="category" id="category">
@@ -64,7 +66,7 @@ export default function ImageDetails() {
                         <option value="반려">반려</option>
                     </select>
                 </div>{' '}
-                <div className="c-title__detail-section-item">
+                <div className="c-image__detail-section-item">
                     <label htmlFor="">카테고리</label>
                     <select name="category" id="category">
                         {categories.map((item, index) => (
@@ -74,7 +76,7 @@ export default function ImageDetails() {
                         ))}
                     </select>
                 </div>
-                <div className="c-title__detail-section-button">
+                <div className="c-image__detail-section-button">
                     <button>변경사항 저장</button>
                 </div>
             </form>

@@ -23,7 +23,7 @@ export default function Image() {
     return (
         <main className="home__main">
             <div className="c-title">
-                <h3>이미지 관리</h3>
+                <h2>이미지 관리</h2>
             </div>
             <section className="c-image__section">
                 {fakeDataArray.map((item: fakeDataItem) => (

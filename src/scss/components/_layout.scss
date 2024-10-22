@@ -26,7 +26,12 @@
       @include border-bottom-style;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+
+      button {
+        background: none;
+        padding: 0 var(--primary__padding) 0 0;
+
+      }
     }
   }
 }
