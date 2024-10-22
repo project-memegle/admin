@@ -12,6 +12,10 @@
     margin: 0 auto;
     position: relative;
 
+    label {
+      display: none;
+    }
+
     .main__container {
       padding-top: calc(var(--primary__font-size) * 3);
     }
@@ -84,11 +88,7 @@
 
     &__shadow {
       z-index: 2;
-      background-color: #fff;
-      box-shadow:
-        rgba(17, 17, 26, 0.1) 0px 1px 0px,
-        rgba(17, 17, 26, 0.1) 0px 8px 24px,
-        rgba(17, 17, 26, 0.1) 0px 16px 48px;
+      background: none;
 
       & > button {
         position: absolute;
@@ -104,6 +104,12 @@
         }
       }
     }
+  }
+
+  .c-chat__detail {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .c-chat__icon-button {

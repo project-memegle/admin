@@ -1,4 +1,4 @@
-import { RandomChatList } from '../utils/RandomChatMaker';
+import { RandomChatList } from '../../utils/RandomChatMaker';
 
 export default function Chat() {
     return (

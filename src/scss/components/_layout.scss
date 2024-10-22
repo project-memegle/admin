@@ -2,7 +2,6 @@
 
 @mixin border-bottom-style {
   border-bottom: 3px solid var(--navBar__primary-color);
-  margin-bottom: calc(var(--primary__padding) * 3);
   padding-bottom: var(--primary__padding);
 }
 
@@ -21,6 +20,7 @@
 
   .c-title {
     @include border-bottom-style;
+    margin-bottom: calc(var(--primary__padding) * 3);
 
     &__detail {
       @include border-bottom-style;
@@ -30,7 +30,25 @@
       button {
         background: none;
         padding: 0 var(--primary__padding) 0 0;
+      }
+    }
+  }
 
+  .c-chat-title {
+    @include border-bottom-style;
+
+    &__detail {
+      @include border-bottom-style;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & > section {
+        display: flex;
+      }
+      button {
+        background: none;
+        padding: 0 var(--primary__padding) 0 0;
       }
     }
   }

@@ -6,8 +6,8 @@ import Image from './pages/Image';
 import User from './pages/User';
 import ImageDetails from './pages/ImageDetails';
 import UserDetails from './pages/UserDetails';
-import Chat from './pages/Chat';
-import ChatDetails from './pages/ChatDetails';
+import Chat from './pages/Chat/Chat';
+import ChatDetails from './pages/Chat/ChatDetails';
 import LogIn from './pages/LogIn';
 import Category from './pages/Cateogry';
 const router = createBrowserRouter([

@@ -35,7 +35,7 @@ export default function ImageDetails() {
                 <button className="c-title__detail-button">
                     <i className="c-icon">arrow_back_ios</i>
                 </button>
-                <h3>이미지 상세보기</h3>
+                <h2>이미지 상세보기</h2>
             </div>
             <div>
                 <img src={imageUrl} alt={imageCategory} />

@@ -9,7 +9,7 @@
 
     clear: both;
 
-    padding: calc(var(--primary__font-size) * 3);
+    padding: calc(var(--primary__font-size) * 3) calc(var(--primary__font-size) * 3) 0 calc(var(--primary__font-size) * 3);
   }
 
   .home__text {
