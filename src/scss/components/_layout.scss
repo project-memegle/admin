@@ -1,0 +1,21 @@
+@import "../settings/colors";
+
+@mixin styles() {
+  .main__container {
+    background-color: var(--primary__background-color);
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 16px;
+    overflow-y: scroll;
+    background-color: var(--primary__background-color);
+    position: relative;
+  }
+
+  .c-title {
+    border-bottom: 3px solid var(--navBar__primary-color);
+    margin-bottom: calc(var(--primary__padding) * 3);
+    padding-bottom: var(--primary__padding);
+  }
+}

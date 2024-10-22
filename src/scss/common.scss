@@ -1,0 +1,9 @@
+@forward "./settings";
+@use "./generic" as generic;
+@use "./components" as componets;
+@forward "./components" as c-* hide styles;
+
+@mixin core() {
+  @include generic.styles();
+  @include componets.styles();
+}

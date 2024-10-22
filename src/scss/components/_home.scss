@@ -1,0 +1,28 @@
+@mixin styles() {
+  .home__main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: var(--navBar__width);
+    overflow-y: scroll;
+    background-color: var(--primary__background-color);
+
+    clear: both;
+
+    padding: calc(var(--primary__font-size) * 3);
+  }
+
+  .home__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #838383;
+  }
+
+  .body__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
