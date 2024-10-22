@@ -5,42 +5,37 @@ import { useNavigate } from 'react-router-dom';
 export type RandomUserDetailProps = {
     id: number;
     content: string;
+    index: number;
 };
 
-const RandomUser: React.FC<RandomUserDetailProps> = ({ id, content }) => {
+const RandomUser: React.FC<RandomUserDetailProps> = ({
+    id,
+    content,
+    index,
+}) => {
     const navigate = useNavigate();
 
-    function navigateToDetail(e: React.MouseEvent<HTMLButtonElement>) {
+    function navigateToDetail(e: React.MouseEvent<HTMLTableRowElement>) {
         e.preventDefault();
-        navigate(`chat/${id}`);
+        navigate(`/chat/${id}`);
     }
 
     return (
-        <button onClick={navigateToDetail}>
-            <div
-                style={{
-                    padding: '10px',
-                    border: '1px solid #ccc',
-                    borderRadius: '5px',
-                    marginBottom: '10px',
-                }}
+        <>
+            <tr
+                className="c-user__section-table-content"
+                onClick={navigateToDetail}
             >
-                {' '}
-                <p>
-                    <strong>ID:</strong> {id}
-                </p>
-                <p>
-                    <strong>content:</strong> {content}
-                </p>
-            </div>
-        </button>
+                <td>{index}</td>
+                <td>{id}</td>
+                <td>{content}</td>
+            </tr>
+        </>
     );
 };
 
-const rand1 = Math.random();
-
 const generateFakeUser = () => ({
-    id: rand1,
+    id: Math.floor(Math.random() * 101), // Generates a unique random integer between 0 and 100
     content: faker.lorem.sentence(),
 });
 
@@ -57,14 +52,15 @@ export const RandomChatList: React.FC<RandomChattingListProps> = ({
     );
 
     return (
-        <div>
+        <>
             {chattings.map((chatting, index) => (
                 <RandomUser
                     key={index}
                     id={chatting.id}
                     content={chatting.content}
+                    index={index}
                 />
             ))}
-        </div>
+        </>
     );
 };

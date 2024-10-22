@@ -18,7 +18,7 @@ export default function UserDetails() {
 
     return (
         <div className="home__main">
-            <form action="">
+            <section>
                 <div className="c-title__detail">
                     <button className="c-title__detail-button">
                         <i className="c-icon">arrow_back_ios</i>
@@ -46,7 +46,7 @@ export default function UserDetails() {
                         <button>변경사항 저장</button>
                     </div>
                 </form>
-            </form>
+            </section>
         </div>
     );
 }

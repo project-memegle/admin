@@ -22,7 +22,10 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
 
     return (
         <>
-            <tr className="c-user__section-table-content" onClick={navigateToDetail}>
+            <tr
+                className="c-user__section-table-content"
+                onClick={navigateToDetail}
+            >
                 <td>{name}</td>
                 <td>{nickname}</td>
                 <td>{id}</td>
