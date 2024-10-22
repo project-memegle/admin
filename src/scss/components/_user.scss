@@ -1,0 +1,43 @@
+@mixin table-style {
+  text-align: left;
+  margin: 0;
+
+  th {
+    padding-bottom: 1em;
+  }
+}
+@mixin styles() {
+  .c-user {
+    button {
+      background: none;
+    }
+    &__section {
+      background: none;
+      padding: 0;
+
+      button {
+        padding: 0;
+      }
+      caption {
+        display: none;
+      }
+
+      &-table-title {
+        @include table-style;
+      }
+      &-table-content {
+        @include table-style;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+
+        tr,
+        td {
+          min-width: 200px;
+          padding: 1em 1em 1em 0;
+        }
+      }
+    }
+  }
+}

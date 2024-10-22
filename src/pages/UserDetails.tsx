@@ -19,23 +19,33 @@ export default function UserDetails() {
     return (
         <div className="home__main">
             <form action="">
-                <h1>유저 디테일</h1>
-                <div>
-                    <RandomUserList length={1} />
+                <div className="c-title__detail">
+                    <button className="c-title__detail-button">
+                        <i className="c-icon">arrow_back_ios</i>
+                    </button>
+                    <h3>회원 상세보기</h3>
                 </div>
-                <div>
-                    <div>
-                        <label htmlFor="password">비밀번호</label>
-                        <input
-                            type="text"
-                            id="password"
-                            onChange={onChangePassword}
-                        />
+                <form action="" className="c-image__detail-section">
+                    <div className="c-image__detail-section-item">
+                        <label htmlFor="">이름</label>
+                        <input type="text" value="홍길동" />
                     </div>
-                    <button>비밀번호 변경</button>
-                </div>
-
-                <button>회원 삭제</button>
+                    <div className="c-image__detail-section-item">
+                        <label htmlFor="">닉네임</label>
+                        <input type="text" value="초콜렛" />
+                    </div>{' '}
+                    <div className="c-image__detail-section-item">
+                        <label htmlFor="">아이디</label>
+                        <input type="text" value="chocolate" />
+                    </div>
+                    <div className="c-image__detail-section-item">
+                        <label htmlFor="">비밀번호</label>
+                        <input type="text" />
+                    </div>
+                    <div className="c-image__detail-section-button">
+                        <button>변경사항 저장</button>
+                    </div>
+                </form>
             </form>
         </div>
     );

@@ -3,43 +3,38 @@ import { faker } from '@faker-js/faker';
 import { useNavigate } from 'react-router-dom';
 
 export type RandomUserDetailProps = {
+    name: string;
     nickname: string;
-    id: number;
+    id: string;
 };
 
-const RandomUser: React.FC<RandomUserDetailProps> = ({ nickname, id }) => {
+const RandomUser: React.FC<RandomUserDetailProps> = ({
+    name,
+    nickname,
+    id,
+}) => {
     const navigate = useNavigate();
 
-    function navigateToDetail(e: React.MouseEvent<HTMLButtonElement>) {
+    function navigateToDetail(e: React.MouseEvent<HTMLTableRowElement>) {
         e.preventDefault();
         navigate(`user/${id}`);
     }
 
     return (
-        <button onClick={navigateToDetail}>
-            <div
-                style={{
-                    padding: '10px',
-                    border: '1px solid #ccc',
-                    borderRadius: '5px',
-                    marginBottom: '10px',
-                }}
-            >
-                <p>
-                    <strong>Nickname:</strong> {nickname}
-                </p>
-                <p>
-                    <strong>ID:</strong> {id}
-                </p>
-            </div>
-        </button>
+        <>
+            <tr className="c-user__section-table-content" onClick={navigateToDetail}>
+                <td>{name}</td>
+                <td>{nickname}</td>
+                <td>{id}</td>
+            </tr>
+        </>
     );
 };
-const rand1 = Math.random();
 
 const generateFakeUser = () => ({
+    name: faker.internet.displayName(),
     nickname: faker.internet.userName(),
-    id: rand1,
+    id: faker.internet.color(),
 });
 
 type RandomUserListProps = {
@@ -53,10 +48,15 @@ export const RandomUserList: React.FC<RandomUserListProps> = ({ length }) => {
     );
 
     return (
-        <div>
+        <>
             {users.map((user, index) => (
-                <RandomUser key={index} nickname={user.nickname} id={user.id} />
+                <RandomUser
+                    key={index}
+                    nickname={user.nickname}
+                    id={user.id}
+                    name={user.name}
+                />
             ))}
-        </div>
+        </>
     );
 };
