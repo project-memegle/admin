@@ -49,12 +49,10 @@ const router = createBrowserRouter([
             {
                 path: 'chat',
                 element: <PrivateRoute element={<Chat />} />,
-                children: [
-                    {
-                        path: ':id',
-                        element: <PrivateRoute element={<ChatDetails />} />,
-                    },
-                ],
+            },
+            {
+                path: 'chat/:id',
+                element: <PrivateRoute element={<ChatDetails />} />,
             },
         ],
     },

@@ -1,4 +1,3 @@
-import { RandomChatList } from '../../utils/RandomChatMaker';
 import ChatItem from './ChatItem';
 
 export default function ChatDetails() {
@@ -6,14 +5,15 @@ export default function ChatDetails() {
         <div className="chat__detail-main">
             <form action="" className="c-chat__detail">
                 <div className="c-chat-title__detail">
-                    <section>
+                    <section className="c-title__detail">
                         <button className="c-title__detail-button">
                             <i className="c-icon">arrow_back_ios</i>
                         </button>
                         <h2>문의 상세보기</h2>
                     </section>
-
-                    <button> 해당 회원 상세보기</button>
+                    <button className="button__light">
+                        해당 회원 상세보기
+                    </button>
                 </div>
                 {/* <div>
                     <RandomChatList length={1} />

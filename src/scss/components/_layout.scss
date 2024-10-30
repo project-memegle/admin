@@ -5,6 +5,11 @@
   padding-bottom: var(--primary__padding);
 }
 
+@mixin button-absolute {
+  position: absolute;
+  right: 0;
+}
+
 @mixin styles() {
   .main__container {
     background-color: var(--primary__background-color);
@@ -20,21 +25,29 @@
 
   .c-title {
     @include border-bottom-style;
-
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     margin-bottom: calc(var(--primary__padding) * 3);
 
+    .button__light {
+      @include button-absolute();
+    }
+
     &__detail {
-      @include border-bottom-style;
+      // @include border-bottom-style;
       display: flex;
       align-items: center;
+      position: relative;
 
-      button {
+      &-button {
+        @include button-absolute();
+        display: flex;
         background: none;
         padding: 0 var(--primary__padding) 0 0;
+        align-items: center;
       }
     }
   }
@@ -51,7 +64,7 @@
       & > section {
         display: flex;
       }
-      button {
+      &-button {
         background: none;
         padding: 0 var(--primary__padding) 0 0;
       }
