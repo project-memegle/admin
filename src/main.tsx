@@ -5,9 +5,12 @@ import { RouterProvider } from 'react-router-dom';
 import '@memegle/styles';
 
 import router from './Router'; // Import default export
+import { ProvideAuth } from './components/auth/ProvideAuth';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <ProvideAuth>
+            <RouterProvider router={router} />
+        </ProvideAuth>
     </StrictMode>
 );

@@ -10,6 +10,8 @@ import Chat from './pages/Chat/Chat';
 import ChatDetails from './pages/Chat/ChatDetails';
 import LogIn from './pages/LogIn';
 import Category from './pages/Cateogry';
+import PrivateRoute from './components/auth/PrivateRoute';
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -26,31 +28,33 @@ const router = createBrowserRouter([
             },
             {
                 path: 'image',
-                element: <Image />,
+                element: <PrivateRoute element={<Image />} />,
             },
             {
                 path: 'image/:id',
-                element: <ImageDetails />,
+                element: <PrivateRoute element={<ImageDetails />} />,
             },
             {
                 path: 'user',
-                element: <User />,
+                element: <PrivateRoute element={<User />} />,
             },
             {
                 path: 'user/:id',
-                element: <UserDetails />,
+                element: <PrivateRoute element={<UserDetails />} />,
             },
             {
                 path: 'category',
-                element: <Category />,
+                element: <PrivateRoute element={<Category />} />,
             },
             {
                 path: 'chat',
-                element: <Chat />,
-            },
-            {
-                path: 'chat/:id',
-                element: <ChatDetails />,
+                element: <PrivateRoute element={<Chat />} />,
+                children: [
+                    {
+                        path: ':id',
+                        element: <PrivateRoute element={<ChatDetails />} />,
+                    },
+                ],
             },
         ],
     },
