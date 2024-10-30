@@ -20,6 +20,11 @@
 
   .c-title {
     @include border-bottom-style;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     margin-bottom: calc(var(--primary__padding) * 3);
 
     &__detail {
