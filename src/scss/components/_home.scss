@@ -16,7 +16,13 @@
     @include padding-style;
     @include main-style;
   }
-
+  .c-home__section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(var(--primary__font-size) * 2);
+  }
   .chat__detail-main {
     padding: calc(var(--primary__font-size) * 3) calc(var(--primary__font-size) * 3) 0
       calc(var(--primary__font-size) * 3);

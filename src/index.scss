@@ -3,7 +3,7 @@
 @include memegle.core();
 
 :root {
-  font-family: "roboto", "Noto Sans Korean", sans-serif;
+  font-family: "Noto Sans Korean", "roboto", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -91,7 +91,6 @@ h6 {
 input {
   box-sizing: border-box;
 }
-
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
