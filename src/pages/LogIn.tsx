@@ -42,18 +42,18 @@ export default function LogIn() {
             auth.login(() => {
                 console.log('사용자 로그인😎');
             });
-            axios
-                .post('/login', {
-                    id,
-                    password,
-                })
-                .then((response: AxiosResponse) => {
-                    console.log('response :', response);
-                    setMessage(response.data.message);
-                })
-                .catch((error: AxiosError) => {
-                    handleApiError(error as AxiosError, setMessage);
-                });
+            // axios
+            //     .post('/login', {
+            //         id,
+            //         password,
+            //     })
+            //     .then((response: AxiosResponse) => {
+            //         console.log('response :', response);
+            //         setMessage(response.data.message);
+            //     })
+            //     .catch((error: AxiosError) => {
+            //         handleApiError(error as AxiosError, setMessage);
+            //     });
         },
         [id, password, setMessage, auth]
     );
