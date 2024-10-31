@@ -17,6 +17,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --container__min-width: 600px;
+
+  --input__min-width: 600px;
+
+  --header__display: none;
+  --navbar__display: inline-block;
+
   --navBar__width: 300px;
   --navBar__primary-color: #182444;
   --navBar__primary-selected-color: #091023;
@@ -27,6 +34,10 @@
   --primary__color: #141517;
   --primary__item-gap: 1em;
   --primary__border-radius: 8px;
+}
+
+html {
+  min-width: 320px;
 }
 
 a {
@@ -63,6 +74,7 @@ ul {
   list-style: none;
   padding: 0;
   margin-top: 0;
+  white-space: nowrap;
   margin-bottom: 1rem;
 }
 
@@ -138,5 +150,20 @@ button:focus-visible {
   }
   button {
     // background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --input__min-width: 100%;
+    --header__display: flex;
+    --navBar__display: none;
+    --navBar__width: 0;
+  }
+
+  body {
+    #root {
+      width: 100%;
+    }
   }
 }

@@ -13,6 +13,7 @@
 @use "image.scss";
 @use "dropdown.scss";
 @use "user.scss";
+@use "header.scss";
 
 @mixin styles() {
   @include button.styles;
@@ -30,4 +31,5 @@
   @include image.styles;
   @include dropdown.styles;
   @include user.styles;
+  @include header.styles;
 }

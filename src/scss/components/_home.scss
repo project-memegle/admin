@@ -12,7 +12,9 @@
 
 @mixin styles() {
   .home__main {
-    padding: calc(var(--primary__font-size) * 3);
+    --c-home-main__padding: calc(var(--primary__padding) * 3);
+
+    padding: var(--c-home-main__padding);
     @include padding-style;
     @include main-style;
   }
@@ -67,5 +69,12 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  .home__main {
+    --c-home-main__padding: 1em;
   }
 }

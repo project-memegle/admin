@@ -92,7 +92,7 @@
     }
 
     &__container {
-      min-width: calc(var(--primary__font-size) * 35);
+      min-width: var(--input__min-width);
       padding: 8% 0 0;
       margin: auto;
 

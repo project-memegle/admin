@@ -1,0 +1,17 @@
+@import "../settings/colors";
+@mixin styles() {
+  .c-header {
+    background-color: var(--navBar__primary-color);
+    // display: flex;
+    display: var(--header__display);
+    ul {
+      margin: 0;
+      display: flex;
+    }
+    button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
