@@ -12,50 +12,55 @@ import LogIn from './pages/LogIn';
 import Category from './pages/Cateogry';
 import PrivateRoute from './components/auth/PrivateRoute';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <App />,
+            errorElement: <NotFoundPage />,
+            children: [
+                {
+                    path: '/',
+                    element: <HomePage />,
+                },
+                {
+                    path: '/login',
+                    element: <LogIn />,
+                },
+                {
+                    path: 'image',
+                    element: <PrivateRoute element={<Image />} />,
+                },
+                {
+                    path: 'image/:id',
+                    element: <PrivateRoute element={<ImageDetails />} />,
+                },
+                {
+                    path: 'user',
+                    element: <PrivateRoute element={<User />} />,
+                },
+                {
+                    path: 'user/:id',
+                    element: <PrivateRoute element={<UserDetails />} />,
+                },
+                {
+                    path: 'category',
+                    element: <PrivateRoute element={<Category />} />,
+                },
+                {
+                    path: 'chat',
+                    element: <PrivateRoute element={<Chat />} />,
+                },
+                {
+                    path: 'chat/:id',
+                    element: <PrivateRoute element={<ChatDetails />} />,
+                },
+            ],
+        },
+    ],
     {
-        path: '/',
-        element: <App />,
-        errorElement: <NotFoundPage />,
-        children: [
-            {
-                path: '/',
-                element: <HomePage />,
-            },
-            {
-                path: '/login',
-                element: <LogIn />,
-            },
-            {
-                path: 'image',
-                element: <PrivateRoute element={<Image />} />,
-            },
-            {
-                path: 'image/:id',
-                element: <PrivateRoute element={<ImageDetails />} />,
-            },
-            {
-                path: 'user',
-                element: <PrivateRoute element={<User />} />,
-            },
-            {
-                path: 'user/:id',
-                element: <PrivateRoute element={<UserDetails />} />,
-            },
-            {
-                path: 'category',
-                element: <PrivateRoute element={<Category />} />,
-            },
-            {
-                path: 'chat',
-                element: <PrivateRoute element={<Chat />} />,
-            },
-            {
-                path: 'chat/:id',
-                element: <PrivateRoute element={<ChatDetails />} />,
-            },
-        ],
-    },
-]);
+        basename: '/admin', // basename 설정
+    }
+);
 
 export default router;
