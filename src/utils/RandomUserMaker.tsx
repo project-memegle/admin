@@ -35,7 +35,7 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
 };
 
 const generateFakeUser = () => ({
-    name: faker.internet.displayName(),
+    name: faker.internet.userName(),
     nickname: faker.internet.userName(),
     id: faker.internet.color(),
 });
