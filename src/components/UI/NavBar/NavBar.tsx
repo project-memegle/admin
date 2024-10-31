@@ -1,63 +1,59 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
     const navigate = useNavigate();
-    function navigateToHome() {
-        navigate('/');
+    const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
+
+    function navigateTo(path: string, menu: string) {
+        navigate(path);
+        setSelectedMenu(menu);
     }
 
-    function navigateToImage() {
-        navigate('/image');
-    }
-    function navigateToUser() {
-        navigate('/user');
-    }
-    function navigateToChat() {
-        navigate('/chat');
-    }
-    function navigateToCategory() {
-        navigate('/category');
-    }
     return (
         <nav className="c-navbar">
-            <button onClick={navigateToHome}>
+            <button onClick={() => navigateTo('/', 'home')}>
                 <img className="logo" src="/src/assets/logo.svg" alt="logo" />
             </button>
             <ul>
-                <li className="c-navbar__list">
-                    <button onClick={navigateToImage}>
+                <li
+                    className={`c-navbar__list ${
+                        selectedMenu === 'image' ? 'selected' : ''
+                    }`}
+                >
+                    <button onClick={() => navigateTo('/image', 'image')}>
                         <div className="c-navbar__list-category">
-                            <i className="c-icon">hide_image</i>
                             이미지 관리
                         </div>
-                        <i className="c-icon">arrow_forward_ios</i>
                     </button>
                 </li>
-                <li className="c-navbar__list">
-                    <button onClick={navigateToUser}>
-                        <div className="c-navbar__list-category">
-                            <i className="c-icon">group</i>
-                            회원 관리
-                        </div>
-                        <i className="c-icon">arrow_forward_ios</i>
+                <li
+                    className={`c-navbar__list ${
+                        selectedMenu === 'user' ? 'selected' : ''
+                    }`}
+                >
+                    <button onClick={() => navigateTo('/user', 'user')}>
+                        <div className="c-navbar__list-category">회원 관리</div>
                     </button>
                 </li>
-                <li className="c-navbar__list">
-                    <button onClick={navigateToChat}>
-                        <div className="c-navbar__list-category">
-                            <i className="c-icon">headset_mic</i>
-                            문의 관리
-                        </div>
-                        <i className="c-icon">arrow_forward_ios</i>
+                <li
+                    className={`c-navbar__list ${
+                        selectedMenu === 'chat' ? 'selected' : ''
+                    }`}
+                >
+                    <button onClick={() => navigateTo('/chat', 'chat')}>
+                        <div className="c-navbar__list-category">문의 관리</div>
                     </button>
                 </li>
-                <li className="c-navbar__list">
-                    <button onClick={navigateToCategory}>
+                <li
+                    className={`c-navbar__list ${
+                        selectedMenu === 'category' ? 'selected' : ''
+                    }`}
+                >
+                    <button onClick={() => navigateTo('/category', 'category')}>
                         <div className="c-navbar__list-category">
-                            <i className="c-icon">category</i>
                             카테고리 관리
                         </div>
-                        <i className="c-icon">arrow_forward_ios</i>
                     </button>
                 </li>
             </ul>

@@ -1,4 +1,11 @@
 @import "../settings/colors";
+@mixin dropdown-arrow-style {
+  appearance: none;
+  background-image: url("@memegle/assets/images/ic_arrow_down.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+}
 
 @mixin styles() {
   .c-image__section {
@@ -44,6 +51,10 @@
         select,
         input {
           flex-grow: 1;
+        }
+
+        select {
+          @include dropdown-arrow-style;
         }
       }
 

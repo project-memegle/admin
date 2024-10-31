@@ -31,11 +31,14 @@ export default function ImageDetails() {
 
     return (
         <main className="home__main c-image__detail">
-            <div className="c-title__detail">
-                <button className="c-title__detail-button">
-                    <i className="c-icon">arrow_back_ios</i>
-                </button>
-                <h2>이미지 상세보기</h2>
+            <div className="c-title">
+                <section className="c-title__detail">
+                    <button className="c-title__detail-button">
+                        <i className="c-icon">arrow_back_ios</i>
+                    </button>
+                    <h2>이미지 상세보기</h2>
+                </section>
+                <button className="button__light">변경사항 저장</button>
             </div>
             <form className="c-image__detail-section">
                 <div>
@@ -75,9 +78,6 @@ export default function ImageDetails() {
                             </option>
                         ))}
                     </select>
-                </div>
-                <div className="c-image__detail-section-button">
-                    <button>변경사항 저장</button>
                 </div>
             </form>
         </main>

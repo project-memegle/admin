@@ -3,7 +3,6 @@
 @use "home.scss";
 @use "icon.scss";
 @use "loadingSpinner.scss";
-@use "modal.scss";
 @use "result.scss";
 @use "searchInput.scss";
 @use "chat.scss";
@@ -21,7 +20,6 @@
   @include home.styles;
   @include icon.styles;
   @include loadingSpinner.styles;
-  @include modal.styles;
   @include result.styles;
   @include searchInput.styles;
   @include chat.styles;
