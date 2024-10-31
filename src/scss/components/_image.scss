@@ -9,18 +9,22 @@
 
 @mixin styles() {
   .c-image__section {
+    --c-category__grid-columns: repeat(4, 1fr);
+    --c-category__grid-rows: minmax(50px, auto);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: minmax(50px, auto);
+    grid-template-columns: var(--c-category__grid-columns);
+    grid-auto-rows: var(--c-category__grid-rows);
     gap: 1em;
     margin-top: calc(var(--primary__padding) * 2);
+    $primary: #141517;
     &-item {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
       height: 12.5em;
-      border-radius: 20px;
+      border-radius: var(--primary__border-radius);
+      background-color: $primary;
       overflow: hidden;
 
       img {
