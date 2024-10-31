@@ -1,5 +1,5 @@
-import ValidationMessages from './ValidationMessages.ts';
-import ValidateSpace from './ValidateSpace.ts';
+import ValidationMessages from './ValidationMessages';
+import ValidateSpace from './ValidateSpace';
 
 const validateLogInPassword = (password: string): string => {
     const trimmedPassword = ValidateSpace(password);

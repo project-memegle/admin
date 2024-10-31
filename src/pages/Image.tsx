@@ -13,7 +13,7 @@ import image9 from '@memegle/assets/images/jpeg/test9.jpeg';
 import image10 from '@memegle/assets/images/jpeg/test10.jpeg';
 import image11 from '@memegle/assets/images/jpeg/test11.jpeg';
 
-const FakeData = {
+export const FakeData = {
     success: true,
     status: 'OK',
     code: 200,

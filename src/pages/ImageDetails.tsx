@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import FakeData from '../data/mockData.json';
-import { fakeDataItem } from './Image';
+import { FakeData, fakeDataItem } from './Image';
 import Dropdown from '../components/UI/Dropdown';
 import { useState, useEffect } from 'react';
 
