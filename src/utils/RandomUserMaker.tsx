@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { faker } from '@faker-js/faker';
 import { useNavigate } from 'react-router-dom';
 
