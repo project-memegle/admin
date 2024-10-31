@@ -1,4 +1,4 @@
-@import "../settings/colors";
+@use "../settings/colors" as colors;
 
 @mixin styles() {
   select,

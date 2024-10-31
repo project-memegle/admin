@@ -1,4 +1,4 @@
-@import "../settings/colors";
+@use "../settings/colors" as colors;
 @mixin styles() {
   .c-navbar {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 1);
@@ -27,7 +27,7 @@
         width: 100%;
         padding: 0.8em 1em;
         // color: #fff;
-        color: $secondary;
+        color: colors.$secondary;
         background: none;
         gap: var(--primary__font-size);
         display: flex;
@@ -46,7 +46,7 @@
         background-color: var(--navBar__primary-selected-color);
         button {
           color: #fff;
-          // color: $secondary;
+          // color: colors.$secondary;
         }
       }
     }
