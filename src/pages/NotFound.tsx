@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/UI/NavBar/NavBar';
-import icon from '@memegle/assets/images/ic_404.png';
+import icon from '@memegle/assets/images/png/ic_404.png';
 export default function NotFoundPage() {
     const navigate = useNavigate();
 

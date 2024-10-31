@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import LogIn from './LogIn';
-import greetingLogo from '@memegle/assets/images/ic_greeting.png';
+import greetingLogo from '@memegle/assets/images/png/ic_greeting.png';
 export default function HomePage() {
     const auth = useAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(!!auth.user);

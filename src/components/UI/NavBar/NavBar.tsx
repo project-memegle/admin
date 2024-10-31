@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from '@memegle/assets/logo/svg/logo.svg';
 
 export default function NavBar() {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function NavBar() {
     return (
         <nav className="c-navbar">
             <button onClick={() => navigateTo('/', 'home')}>
-                <img className="logo" src="/src/assets/logo.svg" alt="logo" />
+                <img className="logo" src={logo} alt="logo" />
             </button>
             <ul>
                 <li
