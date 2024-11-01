@@ -32,7 +32,7 @@ const router = createBrowserRouter(
                     element: <PrivateRoute element={<Image />} />,
                 },
                 {
-                    path: 'image/:id',
+                    path: '/image/:id',
                     element: <PrivateRoute element={<ImageDetails />} />,
                 },
                 {
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
                     element: <PrivateRoute element={<User />} />,
                 },
                 {
-                    path: 'user/:id',
+                    path: '/user/:id',
                     element: <PrivateRoute element={<UserDetails />} />,
                 },
                 {
@@ -52,7 +52,7 @@ const router = createBrowserRouter(
                     element: <PrivateRoute element={<Chat />} />,
                 },
                 {
-                    path: 'chat/:id',
+                    path: '/chat/:id',
                     element: <PrivateRoute element={<ChatDetails />} />,
                 },
             ],

@@ -1,19 +1,23 @@
-import { ChangeEvent, useCallback, useState } from 'react';
-import validateLogInPassword from '../components/UI/Validations/ValidateLogInPassword';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import validateLogInPassword from '../components/Validations/ValidateLogInPassword';
+import handleInputChange from '../utils/Event/handleInputChange';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useScrollToRef } from '../hooks/useScrollToRef';
+import useNavigateToBack from '../hooks/useNavigateToBack';
 
 export default function UserDetails() {
+    const { id } = useParams<{ id: string }>();
+    const userRef = useScrollToRef<HTMLDivElement>(id);
+
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
     const onChangePassword = useCallback(
-        (e: ChangeEvent<HTMLInputElement>) => {
-            const value = e.target.value;
-            const error = validateLogInPassword(value);
-            setPassword(value);
-            setPasswordError(error);
-        },
-        [setPassword, setPasswordError]
+        handleInputChange(setPassword, setPasswordError, validateLogInPassword),
+        []
     );
+
+    const onChangeButton = useNavigateToBack();
 
     const [name, setName] = useState('홍길동');
     const [nickname, setNickname] = useState('초콜렛');
@@ -24,7 +28,11 @@ export default function UserDetails() {
             <section>
                 <div className="c-title">
                     <section className="c-title__detail">
-                        <button className="c-title__detail-button">
+                        <button
+                            className="c-title__detail-button"
+                            type="button"
+                            onClick={onChangeButton}
+                        >
                             <i className="c-icon">arrow_back_ios</i>
                         </button>
                         <h2>회원 상세보기</h2>
@@ -48,7 +56,7 @@ export default function UserDetails() {
                             onChange={(e) => setNickname(e.target.value)}
                         />
                     </div>
-                    <div className="c-image__detail-section-item">
+                    <div className="c-image__detail-section-item" ref={userRef}>
                         <label htmlFor="">아이디</label>
                         <input
                             type="text"
@@ -64,9 +72,6 @@ export default function UserDetails() {
                             onChange={onChangePassword}
                         />
                         {passwordError && <span>{passwordError}</span>}
-                    </div>
-                    <div className="c-image__detail-section-button">
-                        <button>변경사항 저장</button>
                     </div>
                 </form>
             </section>

@@ -17,7 +17,7 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
 
     function navigateToDetail(e: React.MouseEvent<HTMLTableRowElement>) {
         e.preventDefault();
-        navigate(`user/${id}`);
+        navigate(`/user/${id}`);
     }
 
     return (
@@ -37,7 +37,7 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
 const generateFakeUser = () => ({
     name: faker.internet.userName(),
     nickname: faker.internet.userName(),
-    id: faker.internet.color(),
+    id: Math.random().toString(36).substring(2),
 });
 
 type RandomUserListProps = {

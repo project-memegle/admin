@@ -1,14 +1,15 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { FakeData, fakeDataItem } from './Image';
-import Dropdown from '../components/UI/Dropdown';
 import { useState, useEffect } from 'react';
+import useNavigateToBack from '../hooks/useNavigateToBack';
+import { useScrollToRef } from '../hooks/useScrollToRef';
 
 const fakeDataArray = FakeData.results;
 
 export default function ImageDetails() {
     const location = useLocation();
-    const { id, imageUrl, imageCategory } = location.state as fakeDataItem;
-    const [category, setCategory] = useState(imageCategory);
+
+    const { imageUrl, imageCategory } = location.state as fakeDataItem;
     const [categories, setCategories] = useState<string[]>([]);
 
     useEffect(() => {
@@ -16,23 +17,17 @@ export default function ImageDetails() {
         setCategories(imageCategories);
     }, []);
 
-    function handleImageApprove() {
-        console.log('Image approved');
-    }
-
-    function handleImageReject() {
-        console.log('Image rejected');
-    }
-
-    function handleCategoryChange(newCategory: string) {
-        setCategory(newCategory);
-    }
+    const onChangeButton = useNavigateToBack();
 
     return (
         <main className="home__main c-image__detail">
             <div className="c-title">
                 <section className="c-title__detail">
-                    <button className="c-title__detail-button">
+                    <button
+                        className="c-title__detail-button"
+                        type="button"
+                        onClick={onChangeButton}
+                    >
                         <i className="c-icon">arrow_back_ios</i>
                     </button>
                     <h2>이미지 상세보기</h2>

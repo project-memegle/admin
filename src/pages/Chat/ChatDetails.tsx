@@ -1,17 +1,33 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import ChatItem from './ChatItem';
+import useNavigateToBack from '../../hooks/useNavigateToBack';
 
 export default function ChatDetails() {
+    const navigate = useNavigate();
+
+    const { id } = useParams<{ id: string }>();
+    const onChangeButton = useNavigateToBack();
+
     return (
         <div className="chat__detail-main">
             <form action="" className="c-chat__detail">
                 <div className="c-chat-title__detail">
                     <section className="c-title__detail">
-                        <button className="c-title__detail-button">
+                        <button
+                            type="button"
+                            className="c-title__detail-button"
+                            onClick={onChangeButton}
+                        >
                             <i className="c-icon">arrow_back_ios</i>
                         </button>
                         <h2>문의 상세보기</h2>
                     </section>
-                    <button className="button__light">
+                    <button
+                        className="button__light"
+                        onClick={() => {
+                            navigate(`/user/${id}`);
+                        }}
+                    >
                         해당 회원 상세보기
                     </button>
                 </div>

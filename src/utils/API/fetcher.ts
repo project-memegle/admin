@@ -1,5 +1,5 @@
 import axios, { AxiosHeaders, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { getCookie, setCookie } from './cookies';
+import { getCookie, setCookie } from '../Storage/cookies';
 
 const baseURL = import.meta.env.BASE_URL;
 const ACCESS_TOKEN = 'access_token';
