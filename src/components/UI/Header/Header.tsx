@@ -2,17 +2,23 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '@memegle/assets/logo/svg/logo.svg';
 
+interface Header {
+    path: string;
+    menu: string;
+}
+
 export default function Header() {
     const navigate = useNavigate();
     const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
 
-    function navigateTo(path: string, menu: string) {
+    function navigateTo({ path, menu }: Header) {
         navigate(path);
         setSelectedMenu(menu);
     }
+
     return (
         <header className="c-header">
-            <button onClick={() => navigateTo('/', 'home')}>
+            <button onClick={() => navigateTo({ path: '/', menu: 'home' })}>
                 <img className="logo" src={logo} alt="logo" />
             </button>
             <ul>
@@ -21,35 +27,12 @@ export default function Header() {
                         selectedMenu === 'image' ? 'selected' : ''
                     }`}
                 >
-                    <button onClick={() => navigateTo('/image', 'image')}>
+                    <button
+                        onClick={() =>
+                            navigateTo({ path: '/image', menu: 'image' })
+                        }
+                    >
                         <div className="c-navbar__list-category">이미지</div>
-                    </button>
-                </li>
-                <li
-                    className={`c-navbar__list ${
-                        selectedMenu === 'user' ? 'selected' : ''
-                    }`}
-                >
-                    <button onClick={() => navigateTo('/user', 'user')}>
-                        <div className="c-navbar__list-category">회원</div>
-                    </button>
-                </li>
-                <li
-                    className={`c-navbar__list ${
-                        selectedMenu === 'chat' ? 'selected' : ''
-                    }`}
-                >
-                    <button onClick={() => navigateTo('/chat', 'chat')}>
-                        <div className="c-navbar__list-category">문의</div>
-                    </button>
-                </li>
-                <li
-                    className={`c-navbar__list ${
-                        selectedMenu === 'category' ? 'selected' : ''
-                    }`}
-                >
-                    <button onClick={() => navigateTo('/category', 'category')}>
-                        <div className="c-navbar__list-category">카테고리</div>
                     </button>
                 </li>
             </ul>
