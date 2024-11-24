@@ -1,5 +1,5 @@
 import { AxiosError, AxiosResponse } from 'axios';
-import { FormEvent, useCallback, useRef, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import ValidationMessages from '../components/Validations/ValidationMessages';
 import validateId from '../components/Validations/ValidateId';
 import validateLogInPassword from '../components/Validations/ValidateLogInPassword';
@@ -26,6 +26,12 @@ export default function LogIn() {
     const idInputRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = useRef<HTMLInputElement>(null);
 
+    useEffect(() => {
+        if (id && password) {
+            resetErrors(setIdError, setPasswordError);
+        }
+    }, [id, password]);
+
     const onChangeId = useCallback(
         handleInputChange(setId, setIdError, validateId),
         []
@@ -41,28 +47,36 @@ export default function LogIn() {
             e.preventDefault();
             setMessage('');
 
-            if (idError || passwordError) {
-                if (idError) errorInputCheck(idInputRef.current);
-                else if (passwordError)
-                    errorInputCheck(passwordInputRef.current);
+            if (idError) {
+                errorInputCheck(idInputRef.current);
+                return;
+            }
+            if (passwordError) {
+                errorInputCheck(passwordInputRef.current);
                 return;
             }
             if (id && password) {
                 resetErrors(setIdError, setPasswordError);
+
+                if (id !== 'admin' || password !== 'admin') {
+                    setMessage('아이디 혹은 비밀번호가 맞지 않습니다');
+                    return;
+                }
+
                 auth.login(() => {
                     console.log('사용자 로그인😎');
                 });
-                post('/login', {
-                    id,
-                    password,
-                })
-                    .then((response: AxiosResponse) => {
-                        console.log('response :', response);
-                        setMessage(response.data.message);
-                    })
-                    .catch((error: AxiosError) => {
-                        handleApiError(error as AxiosError, setMessage);
-                    });
+                // post('/login', {
+                //     id,
+                //     password,
+                // })
+                //     .then((response: AxiosResponse) => {
+                //         console.log('response :', response);
+                //         setMessage(response.data.message);
+                //     })
+                //     .catch((error: AxiosError) => {
+                //         handleApiError(error as AxiosError, setMessage);
+                //     });
             }
         },
         [id, password, setMessage, auth]

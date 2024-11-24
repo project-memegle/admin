@@ -1,8 +1,7 @@
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { FakeData, fakeDataItem } from './Image';
 import { useState, useEffect } from 'react';
 import useNavigateToBack from '../hooks/useNavigateToBack';
-import { useScrollToRef } from '../hooks/useScrollToRef';
 
 const fakeDataArray = FakeData.results;
 
@@ -57,7 +56,7 @@ export default function ImageDetails() {
                 <div className="c-image__detail-section-item">
                     <label htmlFor="">검증 여부</label>
                     {/* <input type="text" value="미승인" /> */}
-                    <select name="category" id="category">
+                    <select name="confirm" id="confirm">
                         <option value="미승인">미승인</option>
                         <option value="승인">승인</option>
                         <option value="반려">반려</option>
