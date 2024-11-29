@@ -12,6 +12,7 @@ import image8 from '@memegle/assets/images/jpeg/test8.jpeg';
 import image9 from '@memegle/assets/images/jpeg/test9.jpeg';
 import image10 from '@memegle/assets/images/jpeg/test10.jpeg';
 import image11 from '@memegle/assets/images/jpeg/test11.jpeg';
+import { useTranslation } from 'react-i18next';
 
 export const FakeData = {
     success: true,
@@ -172,6 +173,7 @@ export interface fakeDataItem {
 
 export default function Image() {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     function onClick(item: fakeDataItem) {
         return (e: MouseEvent<HTMLLIElement>) => {
@@ -183,7 +185,7 @@ export default function Image() {
     return (
         <main className="home__main">
             <div className="c-title">
-                <h2>이미지 관리</h2>
+                <h2>{t('IMAGE_MANAGEMENT')}</h2>
             </div>
             <section className="c-image__section">
                 {fakeDataArray.map((item: fakeDataItem) => (

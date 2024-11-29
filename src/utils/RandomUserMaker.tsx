@@ -6,12 +6,14 @@ export type RandomUserDetailProps = {
     name: string;
     nickname: string;
     id: string;
+    index: number;
 };
 
 const RandomUser: React.FC<RandomUserDetailProps> = ({
     name,
     nickname,
     id,
+    index,
 }) => {
     const navigate = useNavigate();
 
@@ -26,16 +28,17 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
                 className="c-user__section-table-content"
                 onClick={navigateToDetail}
             >
-                <td>{name}</td>
-                <td>{nickname}</td>
+                <td>{index}</td>
                 <td>{id}</td>
+                <td>{nickname}</td>
+                <td>{name}</td>
             </tr>
         </>
     );
 };
 
 const generateFakeUser = () => ({
-    name: faker.internet.userName(),
+    name: faker.name.fullName(),
     nickname: faker.internet.userName(),
     id: Math.random().toString(36).substring(2),
 });
@@ -55,6 +58,7 @@ export const RandomUserList: React.FC<RandomUserListProps> = ({ length }) => {
             {users.map((user, index) => (
                 <RandomUser
                     key={index}
+                    index={index + 1}
                     nickname={user.nickname}
                     id={user.id}
                     name={user.name}

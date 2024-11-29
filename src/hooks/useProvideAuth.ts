@@ -1,36 +1,33 @@
-import { useState } from 'react';
-
-const fakeAuth = {
-    isAuthenticated: false,
-    login(cb: () => void) {
-        fakeAuth.isAuthenticated = true;
-        setTimeout(cb, 100); // fake async
-    },
-    logout(cb: () => void) {
-        fakeAuth.isAuthenticated = false;
-        setTimeout(cb, 100);
-    },
-};
+import { useState, useEffect } from 'react';
+import { clearLocalStorage } from '../utils/Storage/localStorage';
+import { deleteCookie, getCookie } from '../utils/Storage/cookies';
+import StorageKeyword from '../Constant/StorageKeyword';
 
 export function useProvideAuth() {
-    const [user, setUser] = useState<string | null>(null);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-    const login = (cb: () => void) => {
-        fakeAuth.login(() => {
-            setUser('User');
-            cb();
-        });
+    useEffect(() => {
+        const token = getCookie(StorageKeyword.ACCESS_TOKEN);
+        if (token) {
+            setIsAuthenticated(true);
+        }
+    }, []);
+
+    const login = (callback: VoidFunction = () => {}) => {
+        setIsAuthenticated(true);
+        callback();
     };
 
-    const logout = (cb: () => void) => {
-        fakeAuth.logout(() => {
-            setUser(null);
-            cb();
-        });
+    const logout = (callback: VoidFunction = () => {}) => {
+        setIsAuthenticated(false);
+        clearLocalStorage();
+        deleteCookie(StorageKeyword.ACCESS_TOKEN);
+        deleteCookie(StorageKeyword.REFRESH_TOKEN);
+        callback();
     };
 
     return {
-        user,
+        isAuthenticated,
         login,
         logout,
     };

@@ -13,6 +13,11 @@ const getValidationMessages = (): ValidationMessagesProps => ({
     API_NONEXIST_ID: i18n.t('API_NONEXIST_ID'),
     API_PASSWORD_MISMATCH: i18n.t('API_PASSWORD_MISMATCH'),
     API_UNKNOWN_ERROR: i18n.t('API_UNKNOWN_ERROR'),
+    UNKNOWN_ERROR: i18n.t('UNKNOWN_ERROR'),
+    INVALID_ID_LENGTH: i18n.t('INVALID_ID_LENGTH'),
+    INVALID_ID_TYPE: i18n.t('INVALID_ID_TYPE'),
+    INVALID_NAME_TYPE: i18n.t('INVALID_NAME_TYPE'),
+    INVALID_PASSWORD_LENGTH: i18n.t('INVALID_PASSWORD_LENGTH'),
 });
 
 export default getValidationMessages;

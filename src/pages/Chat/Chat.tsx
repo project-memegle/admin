@@ -1,19 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import { RandomChatList } from '../../utils/RandomChatMaker';
 
 export default function Chat() {
+    const { t, i18n } = useTranslation();
+
     return (
         <main className="home__main">
             <div className="c-title">
-                <h2>문의 관리</h2>
+                <h2>{t('INQUIRY_MANAGEMENT')}</h2>
             </div>
             <section className="c-chat__admin-section c-user__section">
                 <table>
-                    <caption>채팅 목록</caption>
+                    <caption>{t('INQUIRY_LIST')}</caption>
                     <thead>
                         <tr className="c-user__section-table-title">
-                            <th>번호</th>
-                            <th>닉네임</th>
-                            <th>내용</th>
+                            <th>No.</th>
+                            <th>{t('DEFAULT_CATEGORY')}</th>
+                            <th>{t('DEFAULT_NICKNAME')}</th>
+                            <th>{t('DEFAULT_CONTENT')}</th>
                         </tr>
                     </thead>
                     <tbody>

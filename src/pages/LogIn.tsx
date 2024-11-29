@@ -2,13 +2,13 @@ import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import validateId from '../components/Validations/ValidateId';
 import validateLogInPassword from '../components/Validations/ValidateLogInPassword';
-import { useAuth } from '../hooks/useAuth';
 import { errorInputCheck } from '../utils/Event/errorInputCheck';
 import { resetErrors } from '../utils/Event/resetErrors';
 import handleInputChange from '../utils/Event/handleInputChange';
 import getValidationMessages from '../components/Validations/ValidationMessages';
 import { logIn } from '../services/LogInService';
 import { LogInRequestDTO } from '../services/dto/LogInDto';
+import { useAuth } from '../components/auth/ProvideAuth';
 
 export default function LogIn() {
     const { t } = useTranslation();
@@ -21,37 +21,42 @@ export default function LogIn() {
     const [idError, setIdError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    const [id, setId] = useState('');
-    const [password, setPassword] = useState('');
+    const [id, setId] = useState('testloginid3');
+    const [password, setPassword] = useState('qwerQ!1234');
     const [message, setMessage] = useState('');
 
     const idInputRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
-        if (id && password) {
-            resetErrors(setIdError, setPasswordError);
-        }
-    }, [id, password]);
-
     const onChangeId = useCallback(
-        handleInputChange(setId, setIdError, validateId),
+        handleInputChange(setId, setIdError, validateId, () => {
+            setMessage('');
+        }),
         []
     );
 
     const onChangePassword = useCallback(
-        handleInputChange(setPassword, setPasswordError, validateLogInPassword),
+        handleInputChange(
+            setPassword,
+            setPasswordError,
+            validateLogInPassword,
+            () => {
+                setMessage('');
+            }
+        ),
         []
     );
+
+    useEffect(() => {
+        if (id && password) {
+            resetErrors(setIdError, setPasswordError);
+        }
+    }, []);
 
     const onSubmit = useCallback(
         async (e: FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             setMessage('');
-            console.log('====================================');
-            console.log('id', id);
-            console.log('password', password);
-            console.log('====================================');
             if (idError || !id) {
                 errorInputCheck(idInputRef.current);
                 return;
@@ -70,7 +75,7 @@ export default function LogIn() {
                     };
                     await logIn(userData);
                     auth.login(() => {
-                        console.log('사용자 로그인😎');
+                        console.log('로그인 상태 업데이트 완료');
                     });
                 } catch (error) {
                     if (error === 40401) {
@@ -102,7 +107,11 @@ export default function LogIn() {
                 <div className="c-login__container">
                     <section>
                         <div className="c-login__section">
-                            <p>{idError ? idError : DEFAULT_ID}</p>
+                            {idError ? (
+                                <p className="error-message">{idError}</p>
+                            ) : (
+                                <p>{DEFAULT_ID}</p>
+                            )}
                             <label htmlFor="id">{DEFAULT_ID}</label>
                             <input
                                 ref={idInputRef}
@@ -116,13 +125,14 @@ export default function LogIn() {
                             />
                         </div>
                         <div className="c-login__section">
-                            <p>
-                                {passwordError
-                                    ? passwordError
-                                    : DEFAULT_PASSWORD}
-                            </p>
+                            {passwordError ? (
+                                <p className="error-message">{passwordError}</p>
+                            ) : (
+                                <p>{DEFAULT_PASSWORD}</p>
+                            )}
                             <label htmlFor="password">{DEFAULT_PASSWORD}</label>
                             <input
+                                autoComplete="on"
                                 ref={passwordInputRef}
                                 className="c-login__input"
                                 name="password"

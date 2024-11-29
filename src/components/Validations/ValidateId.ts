@@ -1,4 +1,3 @@
-import ValidationMessages from './ValidationMessages';
 import ValidateSpace from './ValidateSpace';
 import validateType from './ValidateType';
 import getValidationMessages from './ValidationMessages';

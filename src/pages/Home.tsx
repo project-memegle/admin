@@ -1,39 +1,37 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../hooks/useAuth';
 import LogIn from './LogIn';
 import greetingLogo from '@memegle/assets/images/png/ic_greeting.png';
+import { useTranslation } from 'react-i18next';
+import { useAuth } from '../components/auth/ProvideAuth';
 export default function HomePage() {
     const auth = useAuth();
-    const [isLoggedIn, setIsLoggedIn] = useState(!!auth.user);
-
-    useEffect(() => {
-        setIsLoggedIn(!!auth.user);
-    }, [auth.user]);
+    const { t } = useTranslation();
 
     const logOutButtonClick = () => {
-        auth.logout(() => {
-            console.log('사용자 로그아웃😒');
-            setIsLoggedIn(false);
-        });
+        auth.logout();
     };
+
+    useEffect(() => {
+        console.log(auth.isAuthenticated);
+    }, [auth.isAuthenticated]);
 
     return (
         <>
-            {!isLoggedIn ? (
+            {!auth.isAuthenticated ? (
                 <LogIn />
             ) : (
                 <main className="home__main">
                     <div className="c-title">
-                        <h2>관리자 페이지</h2>
+                        <h2>{t('DEFAULT_ADMIN')}</h2>
                         <button
                             onClick={logOutButtonClick}
                             className="button__light"
                         >
-                            로그아웃
+                            {t('DEFAULT_SIGNOUT')}
                         </button>
                     </div>
                     <section className="c-home__section">
-                        <h3>관리자 계정으로 로그인 되었습니다</h3>
+                        <h3>{t('LOGIN_SUCCESS_ADMIN')}</h3>
                         <div className="c-home__section-icon">
                             <img src={greetingLogo} alt="greeting" />
                         </div>

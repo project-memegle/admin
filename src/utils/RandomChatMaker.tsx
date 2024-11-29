@@ -3,15 +3,18 @@ import { faker } from '@faker-js/faker';
 import { useNavigate } from 'react-router-dom';
 
 export type RandomUserDetailProps = {
-    id: number;
+    id: string;
     content: string;
     index: number;
+    category: string;
+    nickname: string;
 };
 
 const RandomUser: React.FC<RandomUserDetailProps> = ({
     id,
     content,
     index,
+    category,
 }) => {
     const navigate = useNavigate();
 
@@ -27,6 +30,7 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
                 onClick={navigateToDetail}
             >
                 <td>{index}</td>
+                <td>{category}</td>
                 <td>{id}</td>
                 <td>{content}</td>
             </tr>
@@ -35,7 +39,9 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
 };
 
 const generateFakeUser = () => ({
-    id: Math.floor(Math.random() * 101), // Generates a unique random integer between 0 and 100
+    id: faker.internet.userName(), // Generates a unique random integer between 0 and 100
+    nickname: faker.internet.userName(),
+    category: faker.lorem.word(),
     content: faker.lorem.sentence(),
 });
 
@@ -56,9 +62,11 @@ export const RandomChatList: React.FC<RandomChattingListProps> = ({
             {chattings.map((chatting, index) => (
                 <RandomUser
                     key={index}
+                    category={chatting.category}
                     id={chatting.id}
+                    nickname={chatting.nickname}
                     content={chatting.content}
-                    index={index}
+                    index={index + 1}
                 />
             ))}
         </>
