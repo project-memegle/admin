@@ -29,5 +29,7 @@
   "INVALID_EMAIL_TYPE": "Invalid email format.",
   "INVALID_FORM": "Please check the form.",
   "INVALID_USER": "Authentication information does not match.",
-  "MISSING_ID": "User ID not found. Please log in again."
+  "MISSING_ID": "User ID not found. Please log in again.",
+  "BUTTON_SAVING_BUTTON": "Save Changes",
+  "BUTTON_SAVING_ORDER_BUTTON": "Save Order Changes"
 }
