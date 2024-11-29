@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
-import validateLogInPassword from '../components/Validations/ValidateLogInPassword';
-import handleInputChange from '../utils/Event/handleInputChange';
+import validateLogInPassword from '../../components/Validations/ValidateLogInPassword';
+import handleInputChange from '../../utils/Event/handleInputChange';
 import { useParams } from 'react-router-dom';
-import { useScrollToRef } from '../hooks/useScrollToRef';
-import useNavigateToBack from '../hooks/useNavigateToBack';
+import { useScrollToRef } from '../../hooks/useScrollToRef';
+import useNavigateToBack from '../../hooks/useNavigateToBack';
 import { useTranslation } from 'react-i18next';
 
 export default function UserDetails() {

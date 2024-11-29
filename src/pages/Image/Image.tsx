@@ -12,7 +12,7 @@ import image9 from '@memegle/assets/images/jpeg/test9.jpeg';
 import image10 from '@memegle/assets/images/jpeg/test10.jpeg';
 import image11 from '@memegle/assets/images/jpeg/test11.jpeg';
 import { useTranslation } from 'react-i18next';
-import useCustomNavigate from '../hooks/useCustomNaviaget';
+import useCustomNavigate from '../../hooks/useCustomNavigate';
 
 export const FakeData = {
     success: true,

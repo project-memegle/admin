@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
 import CategoryItem from './CategoryItem';
-import { TItem } from '../../../pages/Cateogry';
+import { TItem } from '../../../pages/Category/Cateogry';
 
 type CategoryItemWrapper = {
     item: TItem;

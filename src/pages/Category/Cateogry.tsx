@@ -14,11 +14,11 @@ import {
     rectSortingStrategy,
     SortableContext,
 } from '@dnd-kit/sortable';
-import CategoryItemWrapper from '../components/UI/Category/CategoryItemWrapper';
+import CategoryItemWrapper from '../../components/UI/Category/CategoryItemWrapper';
 import { useEffect, useState } from 'react';
-import CategoryItem from '../components/UI/Category/CategoryItem';
-import { getCategorylist } from '../services/CategoryService';
-import { CategoryResultSectionDTO } from '../services/dto/ResultDto';
+import CategoryItem from '../../components/UI/Category/CategoryItem';
+import { getCategorylist } from '../../services/CategoryService';
+import { CategoryResultSectionDTO } from '../../services/dto/ResultDto';
 
 export type TItem = {
     id: number;
@@ -26,7 +26,7 @@ export type TItem = {
     keyword: string;
 };
 
-import { MOCK_CATEGORY_LIST } from '../mockData/__CategoryList';
+import { MOCK_CATEGORY_LIST } from '../../mockData/__CategoryList';
 import { useTranslation } from 'react-i18next';
 
 export default function Category() {
@@ -131,6 +131,11 @@ export default function Category() {
             >
                 <SortableContext items={items} strategy={rectSortingStrategy}>
                     <div className="c-category">
+                        <article className="c-category__item c-category__item-add">
+                            <p className="c-category__item-title">
+                                <i className="c-icon">add_circle</i>
+                            </p>
+                        </article>
                         {items.map((item) => (
                             <CategoryItemWrapper key={item.id} item={item} />
                         ))}

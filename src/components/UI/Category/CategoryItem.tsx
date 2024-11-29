@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { TItem } from '../../../pages/Cateogry';
+import { TItem } from '../../../pages/Category/Cateogry';
 
 interface CategoryItemProps {
     item: TItem; // 추가적인 props 타입 정의

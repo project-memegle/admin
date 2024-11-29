@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { faker } from '@faker-js/faker';
-import useCustomNavigate from '../hooks/useCustomNaviaget';
+import useCustomNavigate from '../hooks/useCustomNavigate';
 
 export type RandomUserDetailProps = {
     id: string;

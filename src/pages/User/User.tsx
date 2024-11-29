@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { RandomUserList } from '../utils/RandomUserMaker';
+import { RandomUserList } from '../../utils/RandomUserMaker';
 
 export default function User() {
     const { t } = useTranslation();

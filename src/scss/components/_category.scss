@@ -22,7 +22,17 @@
       border-radius: var(--primary__border-radius);
 
       overflow: hidden;
+      &-add {
+        p {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
+        i {
+          font-size: 4rem;
+        }
+      }
       &-img {
         width: 100%;
       }

@@ -4,7 +4,7 @@ import { getSessionStorages } from '../../../utils/sessionStorage';
 import StorageKeyword from '../../../Constant/StorageKeyword';
 import { setLocalStorage } from '../../../utils/Storage/localStorage';
 import { useTranslation } from 'react-i18next';
-import useCustomNavigate from '../../../hooks/useCustomNaviaget';
+import useCustomNavigate from '../../../hooks/useCustomNavigate';
 
 export default function NavBar() {
     const navigate = useCustomNavigate();

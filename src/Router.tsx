@@ -2,14 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import HomePage from './pages/Home';
 import NotFoundPage from './pages/NotFound';
-import Image from './pages/Image';
-import User from './pages/User';
-import ImageDetails from './pages/ImageDetails';
-import UserDetails from './pages/UserDetails';
+import Image from './pages/Image/Image';
+import ImageDetails from './pages/Image/ImageDetails';
+import User from './pages/User/User';
+import UserDetails from './pages/User/UserDetails';
 import Chat from './pages/Chat/Chat';
 import ChatDetails from './pages/Chat/ChatDetails';
 import LogIn from './pages/LogIn';
-import Category from './pages/Cateogry';
+import Category from './pages/Category/Cateogry';
 import PrivateRoute from './components/auth/PrivateRoute';
 
 const router = createBrowserRouter(

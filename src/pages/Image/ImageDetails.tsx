@@ -1,9 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { FakeData, fakeDataItem } from './Image';
 import { useState, useEffect } from 'react';
-import useNavigateToBack from '../hooks/useNavigateToBack';
 import { useTranslation } from 'react-i18next';
-import { MOCK_CATEGORY_LIST } from '../mockData/__CategoryList';
+import { MOCK_CATEGORY_LIST } from '../../mockData/__CategoryList';
 
 const fakeDataArray = FakeData.results;
 

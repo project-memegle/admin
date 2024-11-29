@@ -9,7 +9,7 @@ import getValidationMessages from '../components/Validations/ValidationMessages'
 import { logIn } from '../services/LogInService';
 import { LogInRequestDTO } from '../services/dto/LogInDto';
 import { useAuth } from '../components/auth/ProvideAuth';
-import useCustomNavigate from '../hooks/useCustomNaviaget';
+import useCustomNavigate from '../hooks/useCustomNavigate';
 
 export default function LogIn() {
     const { t } = useTranslation();
