@@ -4,11 +4,12 @@ import handleInputChange from '../utils/Event/handleInputChange';
 import { useParams } from 'react-router-dom';
 import { useScrollToRef } from '../hooks/useScrollToRef';
 import useNavigateToBack from '../hooks/useNavigateToBack';
+import { useTranslation } from 'react-i18next';
 
 export default function UserDetails() {
     const { id } = useParams<{ id: string }>();
     const userRef = useScrollToRef<HTMLDivElement>(id);
-
+    const { t } = useTranslation();
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
@@ -37,7 +38,9 @@ export default function UserDetails() {
                         </button>
                         <h2>회원 상세보기</h2>
                     </section>
-                    <button className="button__light">변경사항 저장</button>
+                    <button className="button__light">
+                        {t('BUTTON_SAVING_BUTTON')}
+                    </button>
                 </div>
                 <form action="" className="c-image__detail-section">
                     <div className="c-image__detail-section-item">

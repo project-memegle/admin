@@ -14,7 +14,6 @@
   "SAVING_CHANGES": "변경사항",
   "BACK_BUTTON": "뒤로가기",
   "USER_MANAGEMENT": "회원 관리",
-  "IMAGE_MANAGEMENT": "이미지 관리",
   "INQUIRY_MANAGEMENT": "문의 관리",
   "INQUIRY_LIST": "문의 목록",
   "CATEOGRY_MANAGEMENT": "카테고리 관리",
@@ -26,5 +25,14 @@
   "BUTTON_SAVING_ORDER_BUTTON": "변경순서 저장",
   "API_NONEXIST_ID": "존재하지 않는 아이디입니다",
   "API_PASSWORD_MISMATCH": "비밀번호가 일치하지 않습니다",
-  "API_UNKNOWN_ERROR": "알 수 없는 에러 입니다"
+  "API_UNKNOWN_ERROR": "알 수 없는 에러 입니다",
+  "IMAGE_MANAGEMENT": "이미지 관리",
+  "IMAGE_DEATAILS": "이미지 상세보기",
+  "IMAGE_MEME_ID": "밈 아이디",
+  "IMAGE_FINAL_MODIFIED_DATE": "최종 수정일",
+  "IMAGE_UPLOADED_DATE": "게시일",
+  "IMAGE_VERIFICATION_STATE": "검증 여부",
+  "IMAGE_UNAPPROVED": "미승인",
+  "IMAGE_APPROVAL": "승인",
+  "IMAGE_REJECTION": "반려"
 }

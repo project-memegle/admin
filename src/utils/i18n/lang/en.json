@@ -14,7 +14,6 @@
   "SAVING_CHANGES": "Save changes",
   "BACK_BUTTON": "Back",
   "USER_MANAGEMENT": "User Management",
-  "IMAGE_MANAGEMENT": "Image Management",
   "INQUIRY_MANAGEMENT": "Inquiry Management",
   "INQUIRY_LIST": "Inquiry List",
   "CATEOGRY_MANAGEMENT": "Category Management",
@@ -31,5 +30,14 @@
   "BUTTON_SAVING_ORDER_BUTTON": "Save Order Changes",
   "API_NONEXIST_ID": "ID does not exist",
   "API_PASSWORD_MISMATCH": "Password does not match",
-  "API_UNKNOWN_ERROR": "Unknown Error"
+  "API_UNKNOWN_ERROR": "Unknown Error",
+  "IMAGE_MANAGEMENT": "Image Management",
+  "IMAGE_DETAILS": "Image Details",
+  "IMAGE_MEME_ID": "Meme ID",
+  "IMAGE_FINAL_MODIFIED_DATE": "Last Modified Date",
+  "IMAGE_UPLOADED_DATE": "Upload Date",
+  "IMAGE_VERIFICATION_STATE": "Verification Status",
+  "IMAGE_UNAPPROVED": "Unapproved",
+  "IMAGE_APPROVAL": "Approved",
+  "IMAGE_REJECTION": "Rejected"
 }
