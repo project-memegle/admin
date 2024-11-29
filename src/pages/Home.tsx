@@ -11,10 +11,6 @@ export default function HomePage() {
         auth.logout();
     };
 
-    useEffect(() => {
-        console.log(auth.isAuthenticated);
-    }, [auth.isAuthenticated]);
-
     return (
         <>
             {!auth.isAuthenticated ? (
