@@ -11,19 +11,21 @@ interface CategoryItemProps {
 const CategoryItem = forwardRef<HTMLDivElement, CategoryItemProps>(
     ({ item, isOpacityEnabled, isDragging, style, ...props }, ref) => {
         return (
-            <article
-                className="c-category__item"
-                ref={ref}
-                style={style}
-                {...props}
-            >
-                <img
-                    className="c-category__item-img"
-                    src={item.imageUrl}
-                    alt={`img-${item.id}`}
-                />
-                <p className="c-category__item-title">{item.keyword}</p>
-            </article>
+            <>
+                <article
+                    className="c-category__item"
+                    ref={ref}
+                    style={style}
+                    {...props}
+                >
+                    <img
+                        className="c-category__item-img"
+                        src={item.imageUrl}
+                        alt={`img-${item.id}`}
+                    />
+                    <p className="c-category__item-title">{item.keyword}</p>
+                </article>
+            </>
         );
     }
 );
