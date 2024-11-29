@@ -1,4 +1,4 @@
-import { SearchResultSectionDTO } from 'services/dto/ResultDto';
+import { SearchResultSectionDTO } from '../services/dto/ResultDto';
 import resolveImagePath from '../utils/Event/resolveImagePath';
 
 const DATE = new Date().toISOString();

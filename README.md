@@ -1,4 +1,4 @@
-
+\
 # 📍 MEMEGLE  - Admin / 밈글 관리자 
 
 <br/>
@@ -79,7 +79,7 @@ Functional updates will be added in future iterations.
 
 ## ✅ Deployment URL
 
-🔗 [https://memegle-admin.netlify.app/](https://memegle-admin.netlify.app/)
+🔗 [https://project-memegle.github.io/admin/](https://project-memegle.github.io/admin/)
 
 <br/><br/>
 
