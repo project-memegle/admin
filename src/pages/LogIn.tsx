@@ -155,7 +155,7 @@ export default function LogIn() {
                         >
                             {t('DEFAULT_LOGIN')}
                         </button>
-                        {message && <p>{message}</p>}
+                        {message && <p className="font-error">{message}</p>}
                     </section>
                 </div>
             </form>
