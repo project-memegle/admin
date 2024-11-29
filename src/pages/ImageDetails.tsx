@@ -20,17 +20,15 @@ export default function ImageDetails() {
         setCategories(imageCategories);
     }, []);
 
-    const onChangeButton = useNavigateToBack();
-
+    function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        alert('submit');
+    }
     return (
         <main className="home__main c-image__detail">
             <div className="c-title">
                 <section className="c-title__detail">
-                    <button
-                        className="c-title__detail-button"
-                        type="button"
-                        onClick={onChangeButton}
-                    >
+                    <button className="c-title__detail-button">
                         <i className="c-icon">arrow_back_ios</i>
                     </button>
                     <h2>{t('DEFAULT_CATEGORY')}</h2>
@@ -39,25 +37,21 @@ export default function ImageDetails() {
                     {t('BUTTON_SAVING_BUTTON')}
                 </button>
             </div>
-            <form className="c-image__detail-section">
+            <form className="c-image__detail-section" onSubmit={onSubmit}>
                 <div>
                     <img src={imageUrl} alt={imageCategory} />
                 </div>
                 <div className="c-image__detail-section-item">
                     <label htmlFor="">{t('IMAGE_MEME_ID')}</label>
-                    <input
-                        type="text"
-                        value="1
-                    "
-                    />
+                    <input type="text" value="1" readOnly />
                 </div>{' '}
                 <div className="c-image__detail-section-item">
                     <label htmlFor="">{t('IMAGE_FINAL_MODIFIED_DATE')}</label>
-                    <input type="text" value="2023.04.10" />
+                    <input type="text" value="2023.04.10" readOnly />
                 </div>{' '}
                 <div className="c-image__detail-section-item">
                     <label htmlFor="">{t('IMAGE_UPLOADED_DATE')}</label>
-                    <input type="text" value="2023.04.01" />
+                    <input type="text" value="2023.04.01" readOnly />
                 </div>{' '}
                 <div className="c-image__detail-section-item">
                     <label htmlFor="">{t('IMAGE_VERIFICATION_STATE')}</label>
