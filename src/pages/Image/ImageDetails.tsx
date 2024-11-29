@@ -30,7 +30,7 @@ export default function ImageDetails() {
                     <button className="c-title__detail-button">
                         <i className="c-icon">arrow_back_ios</i>
                     </button>
-                    <h2>{t('DEFAULT_CATEGORY')}</h2>
+                    <h2>{t('IMAGE_DEATAILS')}</h2>
                 </section>
                 <button className="button__light">
                     {t('BUTTON_SAVING_BUTTON')}

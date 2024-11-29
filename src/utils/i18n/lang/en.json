@@ -32,7 +32,7 @@
   "API_PASSWORD_MISMATCH": "Password does not match",
   "API_UNKNOWN_ERROR": "Unknown Error",
   "IMAGE_MANAGEMENT": "Image Management",
-  "IMAGE_DETAILS": "Image Details",
+  "IMAGE_DEATAILS": "Image Details",
   "IMAGE_MEME_ID": "Meme ID",
   "IMAGE_FINAL_MODIFIED_DATE": "Last Modified Date",
   "IMAGE_UPLOADED_DATE": "Upload Date",
