@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/UI/NavBar/NavBar';
 import icon from '@memegle/assets/images/png/ic_404.png';
+import useCustomNavigate from '../hooks/useCustomNaviaget';
 export default function NotFoundPage() {
-    const navigate = useNavigate();
+    const navigate = useCustomNavigate();
 
     function naviteToHome() {
         navigate('/');

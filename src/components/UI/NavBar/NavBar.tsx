@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import logo from '@memegle/assets/logo/svg/logo.svg';
 import { getSessionStorages } from '../../../utils/sessionStorage';
 import StorageKeyword from '../../../Constant/StorageKeyword';
 import { setLocalStorage } from '../../../utils/Storage/localStorage';
 import { useTranslation } from 'react-i18next';
+import useCustomNavigate from '../../../hooks/useCustomNaviaget';
 
 export default function NavBar() {
-    const navigate = useNavigate();
+    const navigate = useCustomNavigate();
     const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
     const [language, setLanguage] = useState<string>('ko');
     const { t, i18n } = useTranslation();

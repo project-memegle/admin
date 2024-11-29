@@ -1,7 +1,7 @@
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import validateLogInPassword from '../components/Validations/ValidateLogInPassword';
 import handleInputChange from '../utils/Event/handleInputChange';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useScrollToRef } from '../hooks/useScrollToRef';
 import useNavigateToBack from '../hooks/useNavigateToBack';
 

@@ -9,10 +9,12 @@ import getValidationMessages from '../components/Validations/ValidationMessages'
 import { logIn } from '../services/LogInService';
 import { LogInRequestDTO } from '../services/dto/LogInDto';
 import { useAuth } from '../components/auth/ProvideAuth';
+import useCustomNavigate from '../hooks/useCustomNaviaget';
 
 export default function LogIn() {
     const { t } = useTranslation();
     const auth = useAuth();
+    const navigate = useCustomNavigate();
     const ValidationMessages = getValidationMessages();
 
     const DEFAULT_ID = ValidationMessages.DEFAULT_ID;
@@ -75,7 +77,7 @@ export default function LogIn() {
                     };
                     await logIn(userData);
                     auth.login(() => {
-                        console.log('로그인 상태 업데이트 완료');
+                        navigate('/');
                     });
                 } catch (error) {
                     if (error === 40401) {

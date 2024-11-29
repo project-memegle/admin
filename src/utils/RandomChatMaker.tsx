@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { faker } from '@faker-js/faker';
-import { useNavigate } from 'react-router-dom';
+import useCustomNavigate from '../hooks/useCustomNaviaget';
 
 export type RandomUserDetailProps = {
     id: string;
@@ -16,7 +16,7 @@ const RandomUser: React.FC<RandomUserDetailProps> = ({
     index,
     category,
 }) => {
-    const navigate = useNavigate();
+    const navigate = useCustomNavigate();
 
     function navigateToDetail(e: React.MouseEvent<HTMLTableRowElement>) {
         e.preventDefault();

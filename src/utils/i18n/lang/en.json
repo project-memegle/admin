@@ -18,8 +18,6 @@
   "INQUIRY_MANAGEMENT": "Inquiry Management",
   "INQUIRY_LIST": "Inquiry List",
   "CATEOGRY_MANAGEMENT": "Category Management",
-  "NONEXIST_ID": "ID does not exist",
-  "PASSWORD_MISMATCH": "Password does not match",
   "INVALID_ID_LENGTH": "ID must be between 6 and 15 characters.",
   "INVALID_ID_TYPE": "ID can only contain letters and numbers.",
   "INVALID_NAME_TYPE": "Name can only contain letters.",
@@ -31,5 +29,7 @@
   "MISSING_ID": "User ID not found. Please log in again.",
   "BUTTON_SAVING_BUTTON": "Save Changes",
   "BUTTON_SAVING_ORDER_BUTTON": "Save Order Changes",
+  "API_NONEXIST_ID": "ID does not exist",
+  "API_PASSWORD_MISMATCH": "Password does not match",
   "API_UNKNOWN_ERROR": "Unknown Error"
 }
