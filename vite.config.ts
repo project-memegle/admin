@@ -11,4 +11,11 @@ export default defineConfig({
             '@memegle/styles': '/src/scss/common.scss',
         },
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use "sass:math";`,
+            },
+        },
+    },
 });

@@ -1,5 +1,5 @@
-import ValidationMessages from './ValidationMessages';
 import ValidateSpace from './ValidateSpace';
+import getValidationMessages from './ValidationMessages';
 
 const validateSignUpPassword = (
     password: string,
@@ -7,6 +7,7 @@ const validateSignUpPassword = (
 ): string => {
     const trimmedPassword = ValidateSpace(password); // Remove all spaces
     const trimmedPasswordCheck = ValidateSpace(passwordCheck); // Remove all spaces
+    const ValidationMessages = getValidationMessages();
 
     if (!trimmedPassword || !trimmedPasswordCheck) {
         return ValidationMessages.REQUIRED_PASSWORD;

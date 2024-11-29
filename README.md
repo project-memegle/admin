@@ -56,7 +56,7 @@ Functional updates will be added in future iterations.
 
 -  **React Router**:  Client-side routing
 
--  **DND Kit**: mplements drag-and-drop functionality
+-  **DND Kit**: Implements drag-and-drop functionality
 
 -  **MSW(Mock Service Worker)**: Supports API mocking and testing environments
 

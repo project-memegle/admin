@@ -1,23 +1,25 @@
-import { AxiosError, AxiosResponse } from 'axios';
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
-import ValidationMessages from '../components/Validations/ValidationMessages';
+import { useTranslation } from 'react-i18next';
 import validateId from '../components/Validations/ValidateId';
 import validateLogInPassword from '../components/Validations/ValidateLogInPassword';
-import { handleApiError } from '../utils/API/handleApiError';
 import { useAuth } from '../hooks/useAuth';
-import { post } from '../utils/API/fetcher';
 import { errorInputCheck } from '../utils/Event/errorInputCheck';
 import { resetErrors } from '../utils/Event/resetErrors';
 import handleInputChange from '../utils/Event/handleInputChange';
+import getValidationMessages from '../components/Validations/ValidationMessages';
+import { logIn } from '../services/LogInService';
+import { LogInRequestDTO } from '../services/dto/LogInDto';
 
 export default function LogIn() {
+    const { t } = useTranslation();
     const auth = useAuth();
+    const ValidationMessages = getValidationMessages();
 
     const DEFAULT_ID = ValidationMessages.DEFAULT_ID;
     const DEFAULT_PASSWORD = ValidationMessages.DEFAULT_PASSWORD;
 
-    const [idError, setIdError] = useState(DEFAULT_ID);
-    const [passwordError, setPasswordError] = useState(DEFAULT_PASSWORD);
+    const [idError, setIdError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
@@ -43,43 +45,55 @@ export default function LogIn() {
     );
 
     const onSubmit = useCallback(
-        (e: FormEvent<HTMLFormElement>): void => {
+        async (e: FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             setMessage('');
-
-            if (idError) {
+            console.log('====================================');
+            console.log('id', id);
+            console.log('password', password);
+            console.log('====================================');
+            if (idError || !id) {
                 errorInputCheck(idInputRef.current);
                 return;
             }
-            if (passwordError) {
+            if (passwordError || !password) {
                 errorInputCheck(passwordInputRef.current);
                 return;
             }
+
             if (id && password) {
                 resetErrors(setIdError, setPasswordError);
-
-                if (id !== 'admin' || password !== 'admin') {
-                    setMessage('아이디 혹은 비밀번호가 맞지 않습니다');
-                    return;
+                try {
+                    const userData: LogInRequestDTO = {
+                        loginId: id,
+                        password: password,
+                    };
+                    await logIn(userData);
+                    auth.login(() => {
+                        console.log('사용자 로그인😎');
+                    });
+                } catch (error) {
+                    if (error === 40401) {
+                        setMessage(ValidationMessages.API_NONEXIST_ID);
+                        return;
+                    }
+                    if (error === 40102) {
+                        setMessage(ValidationMessages.API_PASSWORD_MISMATCH);
+                        return;
+                    }
+                    setMessage(ValidationMessages.API_UNKNOWN_ERROR);
                 }
-
-                auth.login(() => {
-                    console.log('사용자 로그인😎');
-                });
-                // post('/login', {
-                //     id,
-                //     password,
-                // })
-                //     .then((response: AxiosResponse) => {
-                //         console.log('response :', response);
-                //         setMessage(response.data.message);
-                //     })
-                //     .catch((error: AxiosError) => {
-                //         handleApiError(error as AxiosError, setMessage);
-                //     });
             }
         },
-        [id, password, setMessage, auth]
+        [
+            id,
+            password,
+            setMessage,
+            auth,
+            idError,
+            passwordError,
+            ValidationMessages,
+        ]
     );
 
     return (
@@ -127,7 +141,7 @@ export default function LogIn() {
                             className="button__rounded button__light"
                             type="submit"
                         >
-                            로그인
+                            {t('DEFAULT_LOGIN')}
                         </button>
                         {message && <p>{message}</p>}
                     </section>

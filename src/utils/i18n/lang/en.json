@@ -1,0 +1,17 @@
+{
+  "CONFIRM": "CONFIRM",
+  "DEFAULT_LOGIN": "LOGIN",
+  "DEFAULT_SIGNOUT": "SIGN OUT",
+  "DEFAULT_ID": "ID",
+  "DEFAULT_PASSWORD": "PASSWORD",
+  "SAVED_CHANGES": "Changes have been saved",
+  "SAVING_CHANGES": "Save changes",
+  "BACK_BUTTON": "Back",
+  "USER_MANAGEMENT": "User Management",
+  "IMAGE_MANAGEMENT": "Image Management",
+  "INQUIRY_MANAGEMENT": "Inquiry Management",
+  "CATEOGRY_MANAGEMENT": "Category Management",
+  "NONEXIST_ID": "ID does not exist",
+  "PASSWORD_MISMATCH": "Password does not match",
+  "UNKNOWN_ERROR": "Unknown Error"
+}

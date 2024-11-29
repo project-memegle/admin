@@ -1,11 +1,13 @@
 import ValidationMessages from './ValidationMessages';
 import validateSpace from './ValidateSpace';
+import getValidationMessages from './ValidationMessages';
 
 const escapeRegExp = (string: string): string => {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 };
 const validateNickname = (nickname: string): string => {
     const trimmedNickname = validateSpace(nickname);
+    const ValidationMessages = getValidationMessages();
 
     if (!trimmedNickname) {
         return ValidationMessages.REQUIRED_NICKNAME;
