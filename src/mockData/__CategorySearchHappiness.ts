@@ -1,4 +1,4 @@
-import { SearchResultSectionDTO } from '../services/dto/ResultDto';
+import { SearchResultSectionDTO } from 'services/dto/ResultDto';
 import resolveImagePath from '../utils/Event/resolveImagePath';
 
 const DATE = new Date().toISOString();
@@ -15,6 +15,7 @@ const MOCK_CATEGORY_RESULT_HAPINESS: SearchResultSectionDTO = {
             imageCategory: 'birthday',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['전광렬', '노래부르기', 'singingman', 'happyman'],
         },
         {
             id: 52,
@@ -22,6 +23,7 @@ const MOCK_CATEGORY_RESULT_HAPINESS: SearchResultSectionDTO = {
             imageCategory: 'birthday',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['영자이모', '먹는게최고', 'happywoman'],
         },
         {
             id: 53,
@@ -29,6 +31,7 @@ const MOCK_CATEGORY_RESULT_HAPINESS: SearchResultSectionDTO = {
             imageCategory: 'birthday',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['햄스터', 'hamster'],
         },
         {
             id: 54,
@@ -36,6 +39,7 @@ const MOCK_CATEGORY_RESULT_HAPINESS: SearchResultSectionDTO = {
             imageCategory: 'birthday',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['헤헤', 'hehe', 'cartoon'],
         },
         {
             id: 55,
@@ -43,6 +47,7 @@ const MOCK_CATEGORY_RESULT_HAPINESS: SearchResultSectionDTO = {
             imageCategory: 'birthday',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['정재영', '뛰어가기', 'happyman'],
         },
         {
             id: 56,
@@ -50,6 +55,7 @@ const MOCK_CATEGORY_RESULT_HAPINESS: SearchResultSectionDTO = {
             imageCategory: 'birthday',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['재롱잔치', '강아지', 'dog'],
         },
     ],
 };

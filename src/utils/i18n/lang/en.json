@@ -9,6 +9,8 @@
   "DEFAULT_ADMIN": "Admin Page",
   "DEFAULT_CATEGORY": "Category",
   "DEFAULT_CONTENT": "Content",
+  "DEFAULT_TAGLIST": "Tag List",
+  "DEFAULT_DELETE": "Delete Image",
   "LOGIN_SUCCESS_ADMIN": "Logged in successfully as an admin account",
   "SAVED_CHANGES": "Changes have been saved",
   "SAVING_CHANGES": "Save changes",

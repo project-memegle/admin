@@ -1,4 +1,4 @@
-import { SearchResultSectionDTO } from '../services/dto/ResultDto';
+import { SearchResultSectionDTO } from 'services/dto/ResultDto';
 import resolveImagePath from '../utils/Event/resolveImagePath';
 
 const DATE = new Date().toISOString();
@@ -15,6 +15,7 @@ const MOCK_CATEGORY_RESULT_ANGER: SearchResultSectionDTO = {
             imageCategory: 'anger',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['angryman', '돌팔매', '사라져라'],
         },
         {
             id: 92,
@@ -22,6 +23,7 @@ const MOCK_CATEGORY_RESULT_ANGER: SearchResultSectionDTO = {
             imageCategory: 'anger',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['참기', 'patience', '참는중'],
         },
         {
             id: 93,
@@ -29,6 +31,7 @@ const MOCK_CATEGORY_RESULT_ANGER: SearchResultSectionDTO = {
             imageCategory: 'anger',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['노려보기', 'staring', '눈빛'],
         },
         {
             id: 94,
@@ -36,6 +39,7 @@ const MOCK_CATEGORY_RESULT_ANGER: SearchResultSectionDTO = {
             imageCategory: 'anger',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['마동석', 'fist', '주먹', 'DonLee'],
         },
         {
             id: 95,
@@ -43,6 +47,7 @@ const MOCK_CATEGORY_RESULT_ANGER: SearchResultSectionDTO = {
             imageCategory: 'anger',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['마동석', 'fist', '주먹', 'DonLee'],
         },
         {
             id: 96,
@@ -50,6 +55,7 @@ const MOCK_CATEGORY_RESULT_ANGER: SearchResultSectionDTO = {
             imageCategory: 'anger',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['등짝스매싱', 'smashing', 'basketball'],
         },
     ],
 };

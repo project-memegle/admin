@@ -1,18 +1,17 @@
 import { useState } from 'react';
 
+import { useMockCategoryList } from '../../mockData/__CategoryList';
+import { useTranslation } from 'react-i18next';
+import { Outlet } from 'react-router-dom';
+
 export type TItem = {
     id: number;
     imageUrl: string;
     keyword: string;
 };
 
-import { MOCK_CATEGORY_LIST } from '../../mockData/__CategoryList';
-import { useTranslation } from 'react-i18next';
-import { Outlet } from 'react-router-dom';
-import ToastMessage from 'components/UI/ToastMessage/ToastMessage';
-
 export default function Category() {
-    const mockCategoryList = MOCK_CATEGORY_LIST;
+    const mockCategoryList = useMockCategoryList();
     const [items, setItems] = useState<TItem[]>(
         mockCategoryList.results.map((item) => ({
             id: item.id,

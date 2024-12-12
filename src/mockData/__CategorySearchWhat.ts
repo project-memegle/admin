@@ -1,4 +1,4 @@
-import { SearchResultSectionDTO } from '../services/dto/ResultDto';
+import { SearchResultSectionDTO } from 'services/dto/ResultDto';
 import resolveImagePath from '../utils/Event/resolveImagePath';
 
 const DATE = new Date().toISOString();
@@ -15,6 +15,7 @@ const MOCK_CATEGORY_RESULT_WHAT: SearchResultSectionDTO = {
             imageCategory: 'what',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['피글렛', '뭐야', 'piglet', 'huh'],
         },
         {
             id: 12,
@@ -22,6 +23,7 @@ const MOCK_CATEGORY_RESULT_WHAT: SearchResultSectionDTO = {
             imageCategory: 'what',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['푸우', '뭐라고', 'pooh', 'hmm'],
         },
         {
             id: 13,
@@ -29,6 +31,7 @@ const MOCK_CATEGORY_RESULT_WHAT: SearchResultSectionDTO = {
             imageCategory: 'what',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['생선', '스폰지밥', 'awkward'],
         },
         {
             id: 14,
@@ -36,6 +39,7 @@ const MOCK_CATEGORY_RESULT_WHAT: SearchResultSectionDTO = {
             imageCategory: 'what',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['문상훈', '별일이다있네', 'funnyman'],
         },
     ],
 };
