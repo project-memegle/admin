@@ -39,6 +39,13 @@
   }
 
   .c-image__detail {
+    &-image-container {
+      max-width: 400px;
+      img {
+        width: 100%;
+      }
+    }
+
     &-section {
       display: flex;
       gap: var(--primary__padding);

@@ -46,9 +46,9 @@ export default function ImageDetails() {
             <form className="c-image__detail-section" onSubmit={onSubmit}>
                 {resultData && (
                     <>
-                        <div>
+                        <div className="c-image__detail-image-container">
                             <img
-                                src={resultData.imageUrl}
+                                src={'/admin/' + resultData.imageUrl}
                                 alt={resultData.imageCategory}
                             />
                         </div>
