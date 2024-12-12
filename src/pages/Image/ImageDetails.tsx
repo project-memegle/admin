@@ -6,7 +6,7 @@ import MOCK_FAVORITE_LIST from '../../mockData/__FavoriteList';
 import { formatStaticDate } from '../../utils/Format/formatDate';
 
 export default function ImageDetails() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [resultData, setResultData] = useState<SearchResultItemDTO | null>(
         null
     );
@@ -62,7 +62,10 @@ export default function ImageDetails() {
                             </label>
                             <input
                                 type="text"
-                                value={formatStaticDate(resultData.modifiedAt)}
+                                value={formatStaticDate(
+                                    resultData.modifiedAt,
+                                    i18n.language
+                                )}
                                 readOnly
                             />
                         </div>
@@ -70,7 +73,10 @@ export default function ImageDetails() {
                             <label htmlFor="">{t('IMAGE_UPLOADED_DATE')}</label>
                             <input
                                 type="text"
-                                value={formatStaticDate(resultData.createdAt)}
+                                value={formatStaticDate(
+                                    resultData.createdAt,
+                                    i18n.language
+                                )}
                                 readOnly
                             />
                         </div>
@@ -97,13 +103,6 @@ export default function ImageDetails() {
                                 value={resultData.imageCategory}
                                 readOnly
                             />
-                            {/* <select name="category" id="category">
-                                {categories.map((item, index) => (
-                                    <option key={index} value={item}>
-                                        {item}
-                                    </option>
-                                ))}
-                            </select> */}
                         </div>
                         <div className="c-image__detail-section-item">
                             <label htmlFor="">{t('DEFAULT_TAGLIST')}</label>

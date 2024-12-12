@@ -78,11 +78,11 @@ export default function UserDetails() {
                     </div>
                     <div className="c-image__detail-section-item" ref={userRef}>
                         <label htmlFor="">{t('INQUIRY_LIST')}</label>
-                        <input type="text" value="-" />
+                        <input type="text" value="-" readOnly />
                     </div>
                     <div className="c-image__detail-section-item" ref={userRef}>
                         <label htmlFor="">{t('IMAGE_UPLOAD_LIST')}</label>
-                        <input type="text" value="-" />
+                        <input type="text" value="-" readOnly />
                     </div>
                 </form>
             </section>
