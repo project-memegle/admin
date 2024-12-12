@@ -1,3 +1,5 @@
+@use "../settings/colors" as colors;
+
 @mixin styles() {
   .c-category {
     --c-category-grid-columns: repeat(2, 1fr);
@@ -22,6 +24,23 @@
       border-radius: var(--primary__border-radius);
 
       overflow: hidden;
+
+      &-delete {
+        position: absolute;
+        top: calc(var(--primary__font-size) / 2);
+        right: calc(var(--primary__font-size) / 2);
+        z-index: 3;
+        .c-icon {
+          color: colors.$white;
+          font-size: 1.5rem;
+          cursor: pointer;
+          z-index: 2;
+
+          &:hover {
+            color: colors.$warning;
+          }
+        }
+      }
       &-add {
         p {
           display: flex;

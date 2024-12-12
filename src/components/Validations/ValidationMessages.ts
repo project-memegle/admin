@@ -17,6 +17,8 @@ const getValidationMessages = (): ValidationMessagesProps => ({
     INVALID_ID_TYPE: i18n.t('INVALID_ID_TYPE'),
     INVALID_NAME_TYPE: i18n.t('INVALID_NAME_TYPE'),
     INVALID_PASSWORD_LENGTH: i18n.t('INVALID_PASSWORD_LENGTH'),
+    INVALID_FILE_FORMAT: i18n.t('INVALID_FILE_FORMAT'),
+    INVALID_FILE_SIZE: i18n.t('INVALID_FILE_SIZE'),
 });
 
 export default getValidationMessages;

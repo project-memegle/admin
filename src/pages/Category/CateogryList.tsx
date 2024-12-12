@@ -15,7 +15,7 @@ import {
     SortableContext,
 } from '@dnd-kit/sortable';
 import CategoryItemWrapper from '../../components/UI/Category/CategoryItemWrapper';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CategoryItem from '../../components/UI/Category/CategoryItem';
 import { getCategorylist } from '../../services/CategoryService';
 import { CategoryResultSectionDTO } from '../../services/dto/ResultDto';
@@ -28,8 +28,9 @@ export type TItem = {
 
 import { MOCK_CATEGORY_LIST } from '../../mockData/__CategoryList';
 import { useTranslation } from 'react-i18next';
+import useCustomNavigate from '../../hooks/useCustomNavigate';
 
-export default function Category() {
+export default function CateogryList() {
     const mockCategoryList = MOCK_CATEGORY_LIST;
     const [items, setItems] = useState<TItem[]>(
         mockCategoryList.results.map((item) => ({
@@ -109,19 +110,14 @@ export default function Category() {
     const handleDragCancel = () => {
         setActiveItem(undefined);
     };
-    const handleButtonClick = () => {
-        const itemIds = items.map((item) => item.id);
-        alert(itemIds);
+
+    const navigate = useCustomNavigate();
+    const onClickSetting = () => {
+        navigate('/category/setting');
     };
 
     return (
-        <main className="home__main">
-            <div className="c-title">
-                <h2>{t('CATEOGRY_MANAGEMENT')}</h2>
-                <button className="button__light" onClick={handleButtonClick}>
-                    {t('BUTTON_SAVING_BUTTON')}
-                </button>
-            </div>
+        <>
             <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
@@ -131,7 +127,10 @@ export default function Category() {
             >
                 <SortableContext items={items} strategy={rectSortingStrategy}>
                     <div className="c-category">
-                        <article className="c-category__item c-category__item-add">
+                        <article
+                            className="c-category__item c-category__item-add"
+                            onClick={onClickSetting}
+                        >
                             <p className="c-category__item-title">
                                 <i className="c-icon">add_circle</i>
                             </p>
@@ -147,6 +146,6 @@ export default function Category() {
                     ) : null}
                 </DragOverlay>
             </DndContext>
-        </main>
+        </>
     );
 }

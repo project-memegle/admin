@@ -12,7 +12,6 @@ const ToastMessage: React.FC<ToastMessageProps> = ({
     onClose,
 }) => {
     const [isVisible, setIsVisible] = useState(true);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
