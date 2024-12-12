@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import ChatItem from './ChatItem';
 import useNavigateToBack from '../../hooks/useNavigateToBack';
+import { useTranslation } from 'react-i18next';
 
 export default function ChatDetails() {
     const navigate = useNavigate();
-
+    const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
     const onChangeButton = useNavigateToBack();
 
@@ -20,7 +21,7 @@ export default function ChatDetails() {
                         >
                             <i className="c-icon">arrow_back_ios</i>
                         </button>
-                        <h2>문의 상세보기</h2>
+                        <h2>{t('DEFAULT_INQUIRY_DETAIL')}</h2>
                     </section>
                     <button
                         className="button__light"
@@ -28,7 +29,7 @@ export default function ChatDetails() {
                             navigate(`/user/${id}`);
                         }}
                     >
-                        해당 회원 상세보기
+                        {t('DEFAULT_THIS_USER_DETAIL')}
                     </button>
                 </div>
                 {/* <div>
@@ -54,7 +55,7 @@ export default function ChatDetails() {
                         <input
                             className="c-input__input"
                             type="text"
-                            placeholder="메세지를 입력해주세요"
+                            placeholder={t('REQUIRED_MESSAGE')}
                         />
                         <button type="submit" name="Submit">
                             <i className="c-icon">send</i>
