@@ -36,7 +36,7 @@ export default function UserDetails() {
                         >
                             <i className="c-icon">arrow_back_ios</i>
                         </button>
-                        <h2>회원 상세보기</h2>
+                        <h2>{t('DEFAULT_USER_DETAIL')}</h2>
                     </section>
                     <button className="button__light">
                         {t('BUTTON_SAVING_BUTTON')}
@@ -44,7 +44,7 @@ export default function UserDetails() {
                 </div>
                 <form action="" className="c-image__detail-section">
                     <div className="c-image__detail-section-item">
-                        <label htmlFor="">이름</label>
+                        <label htmlFor="">{t('DEFAULT_NAME')}</label>
                         <input
                             type="text"
                             value={name}
@@ -52,7 +52,7 @@ export default function UserDetails() {
                         />
                     </div>
                     <div className="c-image__detail-section-item">
-                        <label htmlFor="">닉네임</label>
+                        <label htmlFor="">{t('DEFAULT_NICKNAME')}</label>
                         <input
                             type="text"
                             value={nickname}
@@ -60,7 +60,7 @@ export default function UserDetails() {
                         />
                     </div>
                     <div className="c-image__detail-section-item" ref={userRef}>
-                        <label htmlFor="">아이디</label>
+                        <label htmlFor="">{t('DEFAULT_ID')}</label>
                         <input
                             type="text"
                             value={userId}
@@ -68,13 +68,21 @@ export default function UserDetails() {
                         />
                     </div>
                     <div className="c-image__detail-section-item">
-                        <label htmlFor="">비밀번호</label>
+                        <label htmlFor="">{t('DEFAULT_PASSWORD')}</label>
                         <input
                             type="text"
                             value={password}
                             onChange={onChangePassword}
                         />
                         {passwordError && <span>{passwordError}</span>}
+                    </div>
+                    <div className="c-image__detail-section-item" ref={userRef}>
+                        <label htmlFor="">{t('INQUIRY_LIST')}</label>
+                        <input type="text" value="-" readOnly />
+                    </div>
+                    <div className="c-image__detail-section-item" ref={userRef}>
+                        <label htmlFor="">{t('IMAGE_UPLOAD_LIST')}</label>
+                        <input type="text" value="-" readOnly />
                     </div>
                 </form>
             </section>

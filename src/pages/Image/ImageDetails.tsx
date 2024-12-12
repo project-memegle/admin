@@ -1,27 +1,34 @@
-import { useLocation } from 'react-router-dom';
-import { FakeData, fakeDataItem } from './Image';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MOCK_CATEGORY_LIST } from '../../mockData/__CategoryList';
-
-const fakeDataArray = FakeData.results;
+import { SearchResultItemDTO } from '../../services/dto/ResultDto';
+import { getLastKeywordFromUrl } from '../../utils/Event/saveUrl';
+import MOCK_FAVORITE_LIST from '../../mockData/__FavoriteList';
+import { formatStaticDate } from '../../utils/Format/formatDate';
 
 export default function ImageDetails() {
-    const location = useLocation();
-
-    const { imageUrl, imageCategory } = location.state as fakeDataItem;
-    const [categories, setCategories] = useState<string[]>([]);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const [resultData, setResultData] = useState<SearchResultItemDTO | null>(
+        null
+    );
+    const mockFavouriteList = MOCK_FAVORITE_LIST;
     useEffect(() => {
-        const imageCategories = MOCK_CATEGORY_LIST.results.map(
-            (item) => item.imageCategory
-        );
-        setCategories(imageCategories);
-    }, []);
+        const lastKeyword = getLastKeywordFromUrl<number | string>();
+        if (
+            typeof lastKeyword === 'string' ||
+            typeof lastKeyword === 'number'
+        ) {
+            const foundItem = mockFavouriteList.results.find(
+                (item) => item.id === Number(lastKeyword)
+            );
+            if (foundItem) {
+                setResultData(foundItem);
+            }
+        }
+    }, [mockFavouriteList]);
 
     function onSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        alert('submit');
+        alert(t('RECHECK_DELETE'));
     }
     return (
         <main className="home__main c-image__detail">
@@ -37,40 +44,77 @@ export default function ImageDetails() {
                 </button>
             </div>
             <form className="c-image__detail-section" onSubmit={onSubmit}>
-                <div>
-                    <img src={imageUrl} alt={imageCategory} />
-                </div>
-                <div className="c-image__detail-section-item">
-                    <label htmlFor="">{t('IMAGE_MEME_ID')}</label>
-                    <input type="text" value="1" readOnly />
-                </div>{' '}
-                <div className="c-image__detail-section-item">
-                    <label htmlFor="">{t('IMAGE_FINAL_MODIFIED_DATE')}</label>
-                    <input type="text" value="2023.04.10" readOnly />
-                </div>{' '}
-                <div className="c-image__detail-section-item">
-                    <label htmlFor="">{t('IMAGE_UPLOADED_DATE')}</label>
-                    <input type="text" value="2023.04.01" readOnly />
-                </div>{' '}
-                <div className="c-image__detail-section-item">
-                    <label htmlFor="">{t('IMAGE_VERIFICATION_STATE')}</label>
-                    {/* <input type="text" value="미승인" /> */}
-                    <select name="confirm" id="confirm">
-                        <option value="미승인">{t('IMAGE_UNAPPROVED')}</option>
-                        <option value="승인">{t('IMAGE_APPROVAL')}</option>
-                        <option value="반려">{t('IMAGE_REJECTION')}</option>
-                    </select>
-                </div>{' '}
-                <div className="c-image__detail-section-item">
-                    <label htmlFor="">카테고리</label>
-                    <select name="category" id="category">
-                        {categories.map((item, index) => (
-                            <option key={index} value={item}>
-                                {item}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+                {resultData && (
+                    <>
+                        <div className="c-image__detail-image-container">
+                            <img
+                                src={'/admin/' + resultData.imageUrl}
+                                alt={resultData.imageCategory}
+                            />
+                        </div>
+                        <div className="c-image__detail-section-item">
+                            <label htmlFor="">{t('IMAGE_MEME_ID')}</label>
+                            <input type="text" value={resultData.id} readOnly />
+                        </div>
+                        <div className="c-image__detail-section-item">
+                            <label htmlFor="">
+                                {t('IMAGE_FINAL_MODIFIED_DATE')}
+                            </label>
+                            <input
+                                type="text"
+                                value={formatStaticDate(
+                                    resultData.modifiedAt,
+                                    i18n.language
+                                )}
+                                readOnly
+                            />
+                        </div>
+                        <div className="c-image__detail-section-item">
+                            <label htmlFor="">{t('IMAGE_UPLOADED_DATE')}</label>
+                            <input
+                                type="text"
+                                value={formatStaticDate(
+                                    resultData.createdAt,
+                                    i18n.language
+                                )}
+                                readOnly
+                            />
+                        </div>
+                        <div className="c-image__detail-section-item">
+                            <label htmlFor="">
+                                {t('IMAGE_VERIFICATION_STATE')}
+                            </label>
+                            <select name="confirm" id="confirm">
+                                <option value="미승인">
+                                    {t('IMAGE_UNAPPROVED')}
+                                </option>
+                                <option value="승인">
+                                    {t('IMAGE_APPROVAL')}
+                                </option>
+                                <option value="반려">
+                                    {t('IMAGE_REJECTION')}
+                                </option>
+                            </select>
+                        </div>
+                        <div className="c-image__detail-section-item">
+                            <label htmlFor="">{t('DEFAULT_CATEGORY')}</label>
+                            <input
+                                type="text"
+                                value={resultData.imageCategory}
+                                readOnly
+                            />
+                        </div>
+                        <div className="c-image__detail-section-item">
+                            <label htmlFor="">{t('DEFAULT_TAGLIST')}</label>
+                            <input
+                                type="text"
+                                value={resultData.tagList.join(', ')}
+                                readOnly
+                            />
+                        </div>
+                    </>
+                )}
+                <button className="button__light">{t('DEFAULT_DELETE')}</button>
             </form>
         </main>
     );

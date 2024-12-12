@@ -15,10 +15,13 @@ import {
     SortableContext,
 } from '@dnd-kit/sortable';
 import CategoryItemWrapper from '../../components/UI/Category/CategoryItemWrapper';
-import { useState } from 'react';
+import useCustomNavigate from '../../hooks/useCustomNavigate';
 import CategoryItem from '../../components/UI/Category/CategoryItem';
+import { useEffect, useState } from 'react';
 import { getCategorylist } from '../../services/CategoryService';
 import { CategoryResultSectionDTO } from '../../services/dto/ResultDto';
+import { useMockCategoryList } from '../../mockData/__CategoryList';
+import { useTranslation } from 'react-i18next';
 
 export type TItem = {
     id: number;
@@ -26,19 +29,10 @@ export type TItem = {
     keyword: string;
 };
 
-import { MOCK_CATEGORY_LIST } from '../../mockData/__CategoryList';
-import { useTranslation } from 'react-i18next';
-import useCustomNavigate from '../../hooks/useCustomNavigate';
-
 export default function CateogryList() {
-    const mockCategoryList = MOCK_CATEGORY_LIST;
-    const [items, setItems] = useState<TItem[]>(
-        mockCategoryList.results.map((item) => ({
-            id: item.id,
-            keyword: item.imageCategory,
-            imageUrl: item.titleImageUrl,
-        }))
-    );
+    const mockCategoryList = useMockCategoryList();
+    const [items, setItems] = useState<TItem[]>([]);
+    const { t } = useTranslation();
     const [activeItem, setActiveItem] = useState<TItem>();
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -53,7 +47,16 @@ export default function CateogryList() {
             },
         })
     );
-    const { t } = useTranslation();
+
+    useEffect(() => {
+        setItems(
+            mockCategoryList.results.map((item) => ({
+                id: item.id,
+                keyword: item.imageCategory,
+                imageUrl: item.titleImageUrl,
+            }))
+        );
+    }, [mockCategoryList]);
     // useEffect(() => {
     //     // mockCategoryList를 기본값으로 설정
     //     setCategoryList(mockCategoryList);

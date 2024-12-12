@@ -1,4 +1,4 @@
-import { SearchResultSectionDTO } from '../services/dto/ResultDto';
+import { SearchResultSectionDTO } from 'services/dto/ResultDto';
 import resolveImagePath from '../utils/Event/resolveImagePath';
 
 const DATE = new Date().toISOString();
@@ -15,6 +15,7 @@ const MOCK_CATEGORY_RESULT_HUNGRY: SearchResultSectionDTO = {
             imageCategory: 'hungry',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['나래언니', '소주', '소주하나', 'soju'],
         },
         {
             id: 42,
@@ -22,6 +23,7 @@ const MOCK_CATEGORY_RESULT_HUNGRY: SearchResultSectionDTO = {
             imageCategory: 'hungry',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['참이슬', '루피', 'soju', 'seal'],
         },
         {
             id: 43,
@@ -29,6 +31,7 @@ const MOCK_CATEGORY_RESULT_HUNGRY: SearchResultSectionDTO = {
             imageCategory: 'hungry',
             createdAt: DATE,
             modifiedAt: DATE,
+            tagList: ['김민경', 'food'],
         },
     ],
 };
