@@ -11,6 +11,8 @@ import ChatDetails from './pages/Chat/ChatDetails';
 import LogIn from './pages/LogIn';
 import Category from './pages/Category/Cateogry';
 import PrivateRoute from './components/auth/PrivateRoute';
+import CategorySetting from './pages/Category/CateogrySetting';
+import CateogryList from './pages/Category/CateogryList';
 
 const router = createBrowserRouter(
     [
@@ -46,6 +48,20 @@ const router = createBrowserRouter(
                 {
                     path: 'category',
                     element: <PrivateRoute element={<Category />} />,
+                    children: [
+                        {
+                            path: '',
+                            element: (
+                                <PrivateRoute element={<CateogryList />} />
+                            ),
+                        },
+                        {
+                            path: 'setting',
+                            element: (
+                                <PrivateRoute element={<CategorySetting />} />
+                            ),
+                        },
+                    ],
                 },
                 {
                     path: 'chat',
